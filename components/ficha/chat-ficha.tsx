@@ -26,7 +26,7 @@ export function ChatFicha({ ficha }: { ficha: FichaComercio }) {
     setMensajes([...historial, { rol: "asistente", texto: "" }])
     setTexto("")
     setEnviando(true)
-    await preguntarAlAsistente(ficha.id, historial, (parcial) =>
+    await preguntarAlAsistente(ficha, historial, (parcial) =>
       setMensajes([...historial, { rol: "asistente", texto: parcial }]),
     )
     setEnviando(false)

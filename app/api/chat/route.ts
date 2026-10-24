@@ -7,7 +7,7 @@ export const runtime = "nodejs"
 export const maxDuration = 60
 
 // Body: { fichaId?: string, ficha?: FichaComercio, mensajes: MensajeChat[] }
-// Respuesta: { texto: string }
+// Respuesta: texto plano
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as { fichaId?: string; ficha?: FichaComercio; mensajes?: MensajeChat[] }
@@ -19,15 +19,18 @@ export async function POST(req: Request) {
     const contexto = `Ficha del comercio generada a partir de las fotos de la visita:\n${JSON.stringify(ficha)}\n
 Respondé la pregunta del vendedor en 2 a 5 líneas, con algo que pueda decir o hacer ya. Si la ficha no tiene el dato, decilo.`
 
-    const turnos = mensajes.map((m, i) => ({
+    const turnos = mensajes.map((m) => ({
       rol: m.rol === "vendedor" ? ("user" as const) : ("assistant" as const),
-      texto: i === 0 ? `${contexto}\n\nPregunta: ${m.texto}` : m.texto,
+      texto: m.texto,
     }))
     // Los proveedores exigen que la conversación arranque con el usuario.
     while (turnos.length && turnos[0].rol !== "user") turnos.shift()
+    if (turnos.length === 0) return Response.json({ error: "Falta la pregunta" }, { status: 400 })
+    turnos[0] = { ...turnos[0], texto: `${contexto}\n\nPregunta: ${turnos[0].texto}` }
 
     const texto = await generar({ sistema: PROMPT_SISTEMA, turnos })
-    return Response.json({ texto })
+    // Texto plano: la interfaz lo lee como stream y lo va mostrando.
+    return new Response(texto, { headers: { "content-type": "text/plain; charset=utf-8" } })
   } catch (e) {
     console.error("chat", e)
     return Response.json({ error: e instanceof Error ? e.message : "Error en el chat" }, { status: 500 })

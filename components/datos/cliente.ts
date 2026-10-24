@@ -47,7 +47,9 @@ export async function analizarVisita(datos: {
   ubicacion: FichaComercio["ubicacion"]
 }): Promise<{ ficha: FichaComercio; origen: "api" | "ejemplo" }> {
   const formulario = new FormData()
-  datos.fotos.forEach((foto) => formulario.append("fotos", foto))
+  // Vercel limita el cuerpo a ~4,5 MB: comprimimos cada foto (máx. 1280 px, JPEG 0,75).
+  const comprimidas = await Promise.all(datos.fotos.map((f) => comprimirFoto(f)))
+  comprimidas.forEach((foto, i) => formulario.append("fotos", foto, `foto-${i + 1}.jpg`))
   if (datos.nombre) formulario.append("nombre", datos.nombre)
   if (datos.ubicacion) {
     formulario.append("lat", String(datos.ubicacion.lat))
@@ -73,7 +75,7 @@ export async function analizarVisita(datos: {
 }
 
 export async function preguntarAlAsistente(
-  fichaId: string,
+  ficha: FichaComercio,
   mensajes: MensajeChat[],
   alRecibir: (textoParcial: string) => void,
 ): Promise<"api" | "ejemplo"> {
@@ -81,7 +83,7 @@ export async function preguntarAlAsistente(
     const respuesta = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fichaId, mensajes }),
+      body: JSON.stringify({ ficha, mensajes }),
     })
     if (!respuesta.ok || !respuesta.body) throw new Error(`HTTP ${respuesta.status}`)
 
@@ -101,5 +103,22 @@ export async function preguntarAlAsistente(
       "No pude conectarme con el asistente en este momento. Revisá la ficha de arriba: el surtido, “Ofrecer primero” y el pedido sugerido ya tienen la recomendación para esta visita.",
     )
     return "ejemplo"
+  }
+}
+
+async function comprimirFoto(archivo: File, ladoMax = 1280, calidad = 0.75): Promise<Blob> {
+  try {
+    const bitmap = await createImageBitmap(archivo)
+    const escala = Math.min(1, ladoMax / Math.max(bitmap.width, bitmap.height))
+    const canvas = document.createElement("canvas")
+    canvas.width = Math.round(bitmap.width * escala)
+    canvas.height = Math.round(bitmap.height * escala)
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return archivo
+    ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+    const blob = await new Promise<Blob | null>((ok) => canvas.toBlob(ok, "image/jpeg", calidad))
+    return blob ?? archivo
+  } catch {
+    return archivo
   }
 }
