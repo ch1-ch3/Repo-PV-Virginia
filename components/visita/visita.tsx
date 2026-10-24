@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, ArrowRight, Loader2, MapPin, MapPinOff, Sparkles, Timer } from "lucide-react"
+import { ArrowLeft, ArrowRight, Loader2, LocateFixed, MapPin, MapPinOff, Sparkles, Timer } from "lucide-react"
 import { useBorrador } from "@/components/datos/borrador"
 import { analizarVisita, usePunto } from "@/components/datos/cliente"
+import { distanciaMetros, useUbicacion, type EstadoUbicacion } from "@/components/datos/ubicacion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/components/utils"
@@ -13,27 +14,16 @@ import { EstadoAnalisis } from "./estado-analisis"
 import { PasoEntrevista } from "./paso-entrevista"
 import { PasoFotos } from "./paso-fotos"
 
-type Ubicacion = { estado: "buscando" } | { estado: "ok"; lat: number; lng: number } | { estado: "sin-permiso" | "no-disponible" }
-
 export function Visita({ puntoId, paso }: { puntoId: string | null; paso: 1 | 2 }) {
   const router = useRouter()
   const { data: punto } = usePunto(puntoId)
   const { borrador, actualizar, descartar } = useBorrador(puntoId ?? "fuera-de-ruta")
-  const [ubicacion, setUbicacion] = useState<Ubicacion>({ estado: "buscando" })
+  const { ubicacion, pedir: pedirUbicacion } = useUbicacion()
   const [analizando, setAnalizando] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const base = `/visita/nueva${puntoId ? `?punto=${encodeURIComponent(puntoId)}&` : "?"}`
   const volverAlDetalle = puntoId ? `/puntos/${encodeURIComponent(puntoId)}` : "/"
-
-  useEffect(() => {
-    if (!("geolocation" in navigator)) return setUbicacion({ estado: "no-disponible" })
-    navigator.geolocation.getCurrentPosition(
-      (pos) => setUbicacion({ estado: "ok", lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      (e) => setUbicacion({ estado: e.code === e.PERMISSION_DENIED ? "sin-permiso" : "no-disponible" }),
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
-    )
-  }, [])
 
   const respondidas = Object.values(borrador.respuestas).filter((v) => v !== null && v !== undefined).length
   const puedeAnalizar = borrador.fotos.length > 0 || respondidas > 0
@@ -68,8 +58,8 @@ export function Visita({ puntoId, paso }: { puntoId: string | null; paso: 1 | 2 
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
         <Reloj inicio={borrador.inicio} />
-        <ChipUbicacion ubicacion={ubicacion} />
       </div>
+      <TarjetaUbicacion ubicacion={ubicacion} pedir={pedirUbicacion} punto={punto ?? null} />
 
       {!puntoId && paso === 1 && (
         <div className="flex flex-col gap-1.5">
@@ -173,22 +163,67 @@ function Reloj({ inicio }: { inicio: number }) {
   )
 }
 
-function ChipUbicacion({ ubicacion }: { ubicacion: Ubicacion }) {
+function TarjetaUbicacion({
+  ubicacion,
+  pedir,
+  punto,
+}: {
+  ubicacion: EstadoUbicacion
+  pedir: () => void
+  punto: { lat: number; lng: number; nombre: string } | null
+}) {
+  if (ubicacion.estado === "ok") {
+    const distancia = punto ? distanciaMetros(ubicacion, punto) : null
+    const lejos = distancia !== null && distancia > 300
+    return (
+      <div className={cn("flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm", lejos ? "bg-warning text-warning-foreground" : "bg-accent text-accent-foreground")}>
+        <MapPin className="size-4 shrink-0" aria-hidden="true" />
+        <p className="min-w-0 flex-1">
+          <span className="font-medium">Ubicación capturada</span>
+          <span className="opacity-80"> · ±{ubicacion.precision} m</span>
+          {distancia !== null && (
+            <span className="block text-xs">
+              {lejos
+                ? `Estás a ${distancia >= 1000 ? `${(distancia / 1000).toLocaleString("es-AR", { maximumFractionDigits: 1 })} km` : `${distancia} m`} de ${punto!.nombre}. ¿Es el comercio correcto?`
+                : `Estás en ${punto!.nombre} (a ${distancia} m).`}
+            </span>
+          )}
+        </p>
+        {ubicacion.precision > 100 && (
+          <button type="button" onClick={pedir} className="shrink-0 rounded-md px-2 py-1 text-xs font-semibold underline">
+            Afinar
+          </button>
+        )}
+      </div>
+    )
+  }
   if (ubicacion.estado === "buscando")
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-card px-2.5 py-1">
-        <Loader2 className="size-3.5 animate-spin" aria-hidden="true" /> Buscando GPS…
-      </span>
+      <p className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 text-sm text-muted-foreground" role="status">
+        <Loader2 className="size-4 animate-spin" aria-hidden="true" /> Buscando tu ubicación…
+      </p>
     )
-  if (ubicacion.estado === "ok")
-    return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-accent-foreground">
-        <MapPin className="size-3.5" aria-hidden="true" /> Ubicación capturada
-      </span>
-    )
+  const ayuda = {
+    inactiva: "Activá la ubicación para registrar dónde está el comercio.",
+    denegada: "El permiso de ubicación está bloqueado. Tocá el candado o el ícono de la barra de direcciones → Permisos → Ubicación → Permitir, y después Reintentar.",
+    "no-disponible": "No se pudo obtener la ubicación. Revisá que el GPS del celular esté prendido y reintentá.",
+    "no-segura": "La ubicación solo funciona en una dirección segura (https). Abrí la app desde Vercel.",
+  }[ubicacion.estado]
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-card px-2.5 py-1 text-muted-foreground">
-      <MapPinOff className="size-3.5" aria-hidden="true" /> Sin GPS: se usa la dirección del punto
-    </span>
+    <div className="flex flex-col gap-2 rounded-lg border bg-card px-3 py-2.5 text-sm">
+      <p className="flex gap-2 text-muted-foreground">
+        <MapPinOff className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+        <span>
+          {ayuda}
+          {punto && <span className="block text-xs">Si no, se usa la dirección del punto de venta.</span>}
+        </span>
+      </p>
+      {ubicacion.estado !== "no-segura" && (
+        <Button variant="outline" onClick={pedir} className="w-full">
+          <LocateFixed aria-hidden="true" />
+          {ubicacion.estado === "inactiva" ? "Activar ubicación" : "Reintentar ubicación"}
+        </Button>
+      )}
+    </div>
   )
 }
