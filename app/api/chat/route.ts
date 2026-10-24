@@ -1,3 +1,4 @@
+import { responderSinModelo } from "@/lib/asistente-demo"
 import { generar, hayModelo } from "@/lib/llm"
 import { PROMPT_SISTEMA } from "@/lib/prompt"
 import { obtenerFicha } from "@/lib/db"
@@ -31,6 +32,21 @@ function contextoFicha(f: FichaComercio): string {
     .join("\n")
 }
 
+function textoEnPartes(texto: string): Response {
+  const palabras = texto.split(/(?<=\s)/)
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const enc = new TextEncoder()
+      for (let i = 0; i < palabras.length; i += 3) {
+        controller.enqueue(enc.encode(palabras.slice(i, i + 3).join("")))
+        await new Promise((ok) => setTimeout(ok, 35))
+      }
+      controller.close()
+    },
+  })
+  return new Response(stream, { headers: { "content-type": "text/plain; charset=utf-8" } })
+}
+
 // Body: { fichaId?: string, ficha?: FichaComercio, mensajes: MensajeChat[] }
 // Respuesta: texto plano
 export async function POST(req: Request) {
@@ -40,11 +56,8 @@ export async function POST(req: Request) {
     const mensajes = (body.mensajes ?? []).filter((m) => m.texto?.trim())
     if (!ficha) return Response.json({ error: "Falta la ficha del comercio" }, { status: 400 })
     if (mensajes.length === 0) return Response.json({ error: "Falta la pregunta" }, { status: 400 })
-    if (!hayModelo())
-      return Response.json(
-        { error: "El asistente necesita la clave del modelo (GEMINI_API_KEY u otra). La ficha y el mix funcionan igual." },
-        { status: 503 },
-      )
+    // Sin clave del modelo: respuesta armada con los datos de la ficha, enviada de a pedazos como un chat.
+    if (!hayModelo()) return textoEnPartes(responderSinModelo(ficha, mensajes[mensajes.length - 1].texto))
 
     const contexto = `Ficha del comercio armada en esta visita:\n${contextoFicha(ficha)}\n
 Respondé la pregunta del vendedor en 2 a 5 líneas, con algo que pueda decir o hacer ya. Recomendá solo productos del

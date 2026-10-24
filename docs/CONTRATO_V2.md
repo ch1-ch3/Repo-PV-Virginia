@@ -190,6 +190,6 @@ Toda ruta devuelve `{ error: string }` con status 4xx/5xx. El front muestra el m
 - `FichaComercio` suma `punto_id`, `fotos_analizadas`, `formato.sucursales`, `zona`, `mix`, `recategorizacion`; ítems del mix y de
   ofrecer primero traen `nombre` legible. Se quitaron `pedido_sugerido` y `surtido.falta` (lo que falta es `mix.productos[].estado = "le_falta"`).
 - Rutas: `GET /api/puntos`, `GET /api/puntos/:id`, `GET /api/comercios/:id`, `GET /api/precios[?similares_a=<fichaId>]`
-  (cada producto trae `criterio: "similares" | "todos"`). `POST /api/chat` sin clave → 503 con mensaje.
+  (cada producto trae `criterio: "similares" | "todos"`). `POST /api/chat` sin clave responde con datos de la ficha (`lib/asistente-demo.ts`).
 - Datos de ejemplo: `data/puntos-demo.json` (12 puntos) y `data/fichas-demo.json` (5 visitas guardadas como **insumos**, se arman con la misma lógica).
 - Pruebas de reglas: `npx tsx scripts/probar-logica.ts`.

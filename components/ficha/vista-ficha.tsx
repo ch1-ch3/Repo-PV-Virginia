@@ -61,16 +61,7 @@ export function VistaFicha({ id, pestanaInicial = "categoria" }: { id: string; p
 
   return (
     <div className="flex flex-col gap-4 pb-28">
-      {ficha.origen === "demo" && (
-        <AvisoEjemplo
-          texto={
-            // Las visitas precargadas (data/fichas-demo.json) tienen id "demo-…".
-            ficha.id.startsWith("demo-")
-              ? "Visita de ejemplo precargada para la demo."
-              : "Análisis sin IA (no hay clave del modelo o falló): la categoría sale de las respuestas del dueño y las reglas."
-          }
-        />
-      )}
+      {ficha.id.startsWith("demo-") && <AvisoEjemplo texto="Visita de ejemplo precargada para la demo." />}
 
       <header className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold text-balance">{nombreComercio(ficha)}</h1>
