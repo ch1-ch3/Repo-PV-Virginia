@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    image: visita-con-plan:local
+    container_name: visita-con-plan
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: .env.local
+        required: false
+    restart: unless-stopped
