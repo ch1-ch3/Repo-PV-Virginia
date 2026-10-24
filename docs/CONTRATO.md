@@ -42,8 +42,15 @@ type FichaComercio = {
 ```
 
 ## POST /api/chat
-Request JSON: `{ fichaId: string, mensajes: { rol: "vendedor" | "asistente"; texto: string }[] }`
-Response: texto en streaming (respuesta del asistente con la ficha y las fotos como contexto).
+Request JSON: `{ ficha: FichaComercio, mensajes: { rol: "vendedor" | "asistente"; texto: string }[] }`
+(también acepta `fichaId` en lugar de `ficha`)
+Response JSON: `{ texto: string }` (sin streaming, para simplificar).
+
+## Errores
+Todas las rutas devuelven `{ error: string }` con status 4xx/5xx. La interfaz muestra el mensaje.
+
+## Fotos
+Comprimir en el navegador antes de subir (máx. ~1600 px de lado, JPEG calidad 0.8). Límite: 6 fotos, 4 MB c/u.
 
 ## GET /api/comercios
 Response: `FichaComercio[]` (resumen para la lista y el comparador de precios).
