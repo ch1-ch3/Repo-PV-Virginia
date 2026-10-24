@@ -7,8 +7,8 @@ export const metadata: Metadata = { title: "Comparador de precios · Visita con 
 export default function PreciosPage() {
   return (
     <>
-      <Encabezado titulo="Precios" volverA="/" />
-      <main className="mx-auto max-w-2xl px-4 pt-6 pb-12">
+      <Encabezado titulo="Precios clave" volverA="/" textoVolver="Mis puntos" />
+      <main className="mx-auto max-w-2xl px-4 pt-5 pb-12">
         <TablaPrecios />
       </main>
     </>

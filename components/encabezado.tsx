@@ -1,38 +1,43 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ListChecks, Tags } from "lucide-react"
 
 type Props = {
   titulo?: string
-  volverA?: string
+  subtitulo?: string
+  volverA?: string // si está, muestra el botón de volver (siempre a una ruta fija, no al historial)
+  textoVolver?: string
 }
 
-export function Encabezado({ titulo, volverA }: Props) {
+export function Encabezado({ titulo, subtitulo, volverA, textoVolver = "Volver" }: Props) {
   return (
-    <header className="sticky top-0 z-20 border-b bg-card/95 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-2xl items-center gap-2 px-4">
+    <header className="sticky top-0 z-20 bg-primary text-primary-foreground shadow-sm">
+      <div className="mx-auto flex h-14 max-w-2xl items-center gap-2 px-3">
         {volverA ? (
           <Link
             href={volverA}
-            className="-ml-2 flex size-11 items-center justify-center rounded-lg hover:bg-muted"
-            aria-label="Volver"
+            className="flex h-11 shrink-0 items-center gap-1 rounded-lg pr-2 pl-1 text-sm font-medium hover:bg-primary-pressed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amarillo"
+            aria-label={textoVolver}
           >
             <ArrowLeft className="size-5" aria-hidden="true" />
+            <span className="hidden sm:inline">{textoVolver}</span>
           </Link>
         ) : (
-          <span
-            className="flex size-8 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground"
-            aria-hidden="true"
-          >
-            LV
-          </span>
-        )}
-        <p className="flex-1 truncate text-base font-semibold">{titulo ?? "Visita con Plan"}</p>
-        <nav aria-label="Principal" className="flex items-center gap-1 text-sm font-medium">
-          <Link href="/" className="rounded-lg px-3 py-2 hover:bg-muted">
-            Comercios
+          <Link href="/" className="flex shrink-0 items-center gap-2 pr-1" aria-label="Inicio">
+            <span className="flex size-8 items-center justify-center rounded-md bg-amarillo text-sm font-black text-primary">LV</span>
           </Link>
-          <Link href="/precios" className="rounded-lg px-3 py-2 hover:bg-muted">
-            Precios
+        )}
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-base leading-tight font-semibold">{titulo ?? "Visita con Plan"}</p>
+          {subtitulo && <p className="truncate text-xs leading-tight text-primary-foreground/75">{subtitulo}</p>}
+        </div>
+        <nav aria-label="Principal" className="flex items-center gap-0.5 text-sm font-medium">
+          <Link href="/" className="flex h-11 items-center gap-1.5 rounded-lg px-2.5 hover:bg-primary-pressed">
+            <ListChecks className="size-4" aria-hidden="true" />
+            <span className="hidden sm:inline">Puntos</span>
+          </Link>
+          <Link href="/precios" className="flex h-11 items-center gap-1.5 rounded-lg px-2.5 hover:bg-primary-pressed">
+            <Tags className="size-4" aria-hidden="true" />
+            <span className="hidden sm:inline">Precios</span>
           </Link>
         </nav>
       </div>

@@ -1,91 +1,120 @@
 "use client"
 
 import useSWR, { mutate } from "swr"
-import { FICHAS_EJEMPLO, fichaDeEjemplo } from "./ejemplo"
-import type { FichaComercio, MensajeChat } from "./tipos"
+import type {
+  ComparadorPrecios,
+  FichaComercio,
+  MensajeChat,
+  ProductoClave,
+  PuntoDeVenta,
+  RespuestasDueno,
+  TipoFoto,
+  Zona,
+} from "./tipos"
 
-type ResultadoComercios = { fichas: FichaComercio[]; origen: "api" | "ejemplo" }
-
-const CLAVE_COMERCIOS = "/api/comercios"
-const CLAVE_LOCALES = "fichas-locales"
-
-function esFicha(valor: unknown): valor is FichaComercio {
-  return typeof valor === "object" && valor !== null && "id" in valor && "formato" in valor && "resumen" in valor
+// Las rutas devuelven { error } con status 4xx/5xx: lo mostramos tal cual, sin caer a datos inventados.
+async function pedir<T>(url: string): Promise<T> {
+  const res = await fetch(url, { headers: { Accept: "application/json" } })
+  if (!res.ok) {
+    const cuerpo = (await res.json().catch(() => null)) as { error?: string } | null
+    throw new Error(cuerpo?.error ?? `Error ${res.status}`)
+  }
+  return res.json() as Promise<T>
 }
 
-async function cargarComercios(): Promise<ResultadoComercios> {
-  try {
-    const respuesta = await fetch(CLAVE_COMERCIOS, { headers: { Accept: "application/json" } })
-    if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`)
-    const datos: unknown = await respuesta.json()
-    if (!Array.isArray(datos) || !datos.every(esFicha)) throw new Error("Formato inesperado")
-    return { fichas: datos, origen: "api" }
-  } catch {
-    return { fichas: FICHAS_EJEMPLO, origen: "ejemplo" }
-  }
+const opciones = { revalidateOnFocus: false }
+
+export function usePuntos() {
+  return useSWR<PuntoDeVenta[]>("/api/puntos", pedir, opciones)
+}
+
+export function usePunto(id: string | null) {
+  return useSWR<PuntoDeVenta>(id ? `/api/puntos/${encodeURIComponent(id)}` : null, pedir, opciones)
+}
+
+// Fichas recién analizadas en este dispositivo: el servidor puede no tenerlas en memoria (otra instancia).
+const fichasLocales = new Map<string, FichaComercio>()
+
+export function useFicha(id: string) {
+  return useSWR<FichaComercio>(
+    `/api/comercios/${encodeURIComponent(id)}`,
+    async (url: string) => fichasLocales.get(id) ?? pedir<FichaComercio>(url),
+    { ...opciones, fallbackData: fichasLocales.get(id) },
+  )
 }
 
 export function useComercios() {
-  const { data, isLoading } = useSWR(CLAVE_COMERCIOS, cargarComercios, { revalidateOnFocus: false })
-  const { data: locales = [] } = useSWR<FichaComercio[]>(CLAVE_LOCALES, null, { fallbackData: [] })
-
-  const idsLocales = new Set(locales.map((f) => f.id))
-  const remotas = (data?.fichas ?? []).filter((f) => !idsLocales.has(f.id))
-  const fichas = [...locales, ...remotas].sort((a, b) => b.creado.localeCompare(a.creado))
-
-  return { fichas, origen: data?.origen ?? null, isLoading }
+  return useSWR<FichaComercio[]>("/api/comercios", pedir, opciones)
 }
 
-export function useFicha(id: string) {
-  const { fichas, isLoading } = useComercios()
-  return { ficha: fichas.find((f) => f.id === id) ?? null, isLoading }
+// Precios de comercios similares a esta ficha; si el servidor no la conoce, contra todos.
+export function usePrecios(similaresA?: string) {
+  return useSWR<ComparadorPrecios>(
+    similaresA ? `/api/precios?similares_a=${encodeURIComponent(similaresA)}` : "/api/precios",
+    async (url: string) => {
+      try {
+        return await pedir<ComparadorPrecios>(url)
+      } catch (e) {
+        if (similaresA) return pedir<ComparadorPrecios>("/api/precios")
+        throw e
+      }
+    },
+    opciones,
+  )
 }
 
-export async function analizarVisita(datos: {
-  fotos: File[]
+export type DatosVisita = {
+  puntoId: string | null
   nombre: string | null
-  ubicacion: FichaComercio["ubicacion"]
-}): Promise<{ ficha: FichaComercio; origen: "api" | "ejemplo" }> {
+  fotos: { tipo: TipoFoto; archivo: File }[]
+  noVende: ProductoClave[]
+  respuestas: RespuestasDueno
+  zona: Zona | null
+  ubicacion: { lat: number; lng: number } | null
+}
+
+export async function analizarVisita(datos: DatosVisita): Promise<FichaComercio> {
   const formulario = new FormData()
   // Vercel limita el cuerpo a ~4,5 MB: comprimimos cada foto (máx. 1280 px, JPEG 0,75).
-  const comprimidas = await Promise.all(datos.fotos.map((f) => comprimirFoto(f)))
+  const comprimidas = await Promise.all(datos.fotos.map((f) => comprimirFoto(f.archivo)))
   comprimidas.forEach((foto, i) => formulario.append("fotos", foto, `foto-${i + 1}.jpg`))
+  formulario.append("tipos_fotos", JSON.stringify(datos.fotos.map((f) => f.tipo)))
+  formulario.append("no_vende", JSON.stringify(datos.noVende))
+  formulario.append("respuestas_dueno", JSON.stringify(datos.respuestas))
+  if (datos.zona) formulario.append("zona_confirmada", datos.zona)
+  if (datos.puntoId) formulario.append("punto_id", datos.puntoId)
   if (datos.nombre) formulario.append("nombre", datos.nombre)
   if (datos.ubicacion) {
     formulario.append("lat", String(datos.ubicacion.lat))
     formulario.append("lng", String(datos.ubicacion.lng))
   }
 
-  let resultado: { ficha: FichaComercio; origen: "api" | "ejemplo" }
-  try {
-    const respuesta = await fetch("/api/analizar", { method: "POST", body: formulario })
-    if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`)
-    const ficha: unknown = await respuesta.json()
-    if (!esFicha(ficha)) throw new Error("Formato inesperado")
-    resultado = { ficha, origen: "api" }
-  } catch {
-    resultado = { ficha: fichaDeEjemplo({ nombre: datos.nombre, ubicacion: datos.ubicacion }), origen: "ejemplo" }
-  }
+  const res = await fetch("/api/analizar", { method: "POST", body: formulario })
+  const cuerpo = (await res.json().catch(() => null)) as (FichaComercio & { error?: string }) | null
+  if (!res.ok || !cuerpo || cuerpo.error) throw new Error(cuerpo?.error ?? `No se pudo analizar (error ${res.status})`)
 
-  await mutate<FichaComercio[]>(CLAVE_LOCALES, (previas = []) => [resultado.ficha, ...previas], {
-    revalidate: false,
-  })
-  if (resultado.origen === "api") void mutate(CLAVE_COMERCIOS)
-  return resultado
+  fichasLocales.set(cuerpo.id, cuerpo)
+  void mutate("/api/puntos")
+  void mutate("/api/comercios")
+  if (datos.puntoId) void mutate(`/api/puntos/${encodeURIComponent(datos.puntoId)}`)
+  return cuerpo
 }
 
 export async function preguntarAlAsistente(
   ficha: FichaComercio,
   mensajes: MensajeChat[],
   alRecibir: (textoParcial: string) => void,
-): Promise<"api" | "ejemplo"> {
+): Promise<void> {
   try {
     const respuesta = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ficha, mensajes }),
     })
-    if (!respuesta.ok || !respuesta.body) throw new Error(`HTTP ${respuesta.status}`)
+    if (!respuesta.ok || !respuesta.body) {
+      const cuerpo = (await respuesta.json().catch(() => null)) as { error?: string } | null
+      throw new Error(cuerpo?.error ?? `Error ${respuesta.status}`)
+    }
 
     const lector = respuesta.body.getReader()
     const decodificador = new TextDecoder()
@@ -97,12 +126,10 @@ export async function preguntarAlAsistente(
       alRecibir(acumulado)
     }
     if (!acumulado.trim()) throw new Error("Respuesta vacía")
-    return "api"
-  } catch {
+  } catch (e) {
     alRecibir(
-      "No pude conectarme con el asistente en este momento. Revisá la ficha de arriba: el surtido, “Ofrecer primero” y el pedido sugerido ya tienen la recomendación para esta visita.",
+      `No pude responder: ${e instanceof Error ? e.message : "error de conexión"}. La categoría y el mix de arriba ya tienen la recomendación para esta visita.`,
     )
-    return "ejemplo"
   }
 }
 

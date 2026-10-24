@@ -1,35 +1,42 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Paleta oficial La Virginia (docs/field_operational_precision/DESIGN.md) */
 :root {
-  --background: oklch(0.975 0.003 250);
-  --foreground: oklch(0.22 0.01 50);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.01 50);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.01 50);
-  --primary: oklch(0.5 0.19 25);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.94 0.004 250);
-  --secondary-foreground: oklch(0.22 0.01 50);
-  --muted: oklch(0.95 0.004 250);
-  --muted-foreground: oklch(0.48 0.01 50);
-  --accent: oklch(0.94 0.04 145);
-  --accent-foreground: oklch(0.38 0.09 145);
-  --success: oklch(0.48 0.1 145);
-  --success-foreground: oklch(0.99 0 0);
-  --warning: oklch(0.95 0.06 85);
-  --warning-foreground: oklch(0.42 0.09 70);
-  --destructive: oklch(0.5 0.19 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.005 250);
-  --input: oklch(0.88 0.005 250);
-  --ring: oklch(0.5 0.19 25);
+  --background: #f1f1f1;
+  --foreground: #1f2933;
+  --card: #ffffff;
+  --card-foreground: #1f2933;
+  --popover: #ffffff;
+  --popover-foreground: #1f2933;
+  --primary: #0e4194;
+  --primary-pressed: #0a3373;
+  --primary-foreground: #ffffff;
+  --amarillo: #ffd302; /* solo sobre azul */
+  --oro: #b09613;
+  --secondary: #e4effe;
+  --secondary-foreground: #0e4194;
+  --muted: #edf1f5;
+  --muted-foreground: #4d5864;
+  --accent: #e8efe0;
+  --accent-foreground: #4a6234;
+  --success: #627d47;
+  --success-foreground: #ffffff;
+  --warning: #fbf3d0;
+  --warning-foreground: #6f5d00;
+  --destructive: #c0392b;
+  --destructive-foreground: #ffffff;
+  --border: #e2e5e8;
+  --input: #c3c6d3;
+  --ring: #0e4194;
+  --gama-economica: #8a949e;
+  --gama-media: #b09613;
+  --gama-premium: #0e4194;
   --radius: 0.75rem;
 }
 
 @theme inline {
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -38,7 +45,10 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-pressed: var(--primary-pressed);
   --color-primary-foreground: var(--primary-foreground);
+  --color-amarillo: var(--amarillo);
+  --color-oro: var(--oro);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -54,6 +64,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-gama-economica: var(--gama-economica);
+  --color-gama-media: var(--gama-media);
+  --color-gama-premium: var(--gama-premium);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

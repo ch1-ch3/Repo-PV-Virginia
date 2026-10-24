@@ -1,0 +1,91 @@
+[
+  {
+    "id": "p01", "orden": 1, "estado": "cliente",
+    "nombre": "Autoservicio San Cayetano", "direccion": "Urquiza 884", "lat": -32.9535, "lng": -60.6430,
+    "categoria_actual": { "formato": "autoservicio", "nse": "medio", "puntaje": 0.1, "fecha": "2022-05-14", "zona": "media" },
+    "observaciones": "Poco espacio de góndola para café; rota mucho la yerba y el té en saquitos.",
+    "mix_actual": { "economica": 30, "media": 55, "premium": 15 },
+    "ultimas_ventas": [
+      { "fecha": "2026-09-09", "items": [{ "material": "CAFE MOL LV TOR EQUIL 250G", "unidades": 24 }, { "material": "TE COMUN LV NAT INT 25S", "unidades": 40 }] },
+      { "fecha": "2026-08-12", "items": [{ "material": "YERBA LITORAL CS ST 50S", "unidades": 30 }, { "material": "SAB POL GALLINA ST 12S", "unidades": 36 }] },
+      { "fecha": "2026-07-15", "items": [{ "material": "ESP OREGANO ST S 25G", "unidades": 60 }, { "material": "INST LV CLA ESP INST DP170G", "unidades": 12 }] }
+    ]
+  },
+  {
+    "id": "p02", "orden": 2, "estado": "cliente",
+    "nombre": "Almacén Don Tito", "direccion": "Av. San Martín 4120", "lat": -32.9842, "lng": -60.6521,
+    "categoria_actual": { "formato": "almacen", "nse": "medio", "puntaje": 0.0, "fecha": "2022-06-02", "zona": "media" },
+    "observaciones": "Atiende el dueño. Vende mucho suelto y fraccionado.",
+    "mix_actual": { "economica": 50, "media": 50, "premium": 0 },
+    "ultimas_ventas": [
+      { "fecha": "2026-09-20", "items": [{ "material": "TE COMUN MO D1890 25 S", "unidades": 24 }, { "material": "YERBA LITORAL SS ST E-25/3G", "unidades": 24 }] },
+      { "fecha": "2026-08-22", "items": [{ "material": "CAFE MOL MOR INTENS 500G", "unidades": 6 }, { "material": "ESP PIMENTON ST S 25G", "unidades": 30 }] }
+    ]
+  },
+  {
+    "id": "p03", "orden": 3, "estado": "nuevo",
+    "nombre": "Kiosco Central", "direccion": "Lamadrid 850", "lat": -32.9897, "lng": -60.6468,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p04", "orden": 4, "estado": "cliente",
+    "nombre": "Supermercado El Trébol", "direccion": "España 3400", "lat": -32.9712, "lng": -60.6455,
+    "categoria_actual": { "formato": "supermercado", "nse": "alto", "puntaje": 0.5, "fecha": "2022-04-20", "zona": "acomodada" },
+    "observaciones": "Tres cajas y carnicería propia. Pide cápsulas.",
+    "mix_actual": { "economica": 10, "media": 40, "premium": 50 },
+    "ultimas_ventas": [
+      { "fecha": "2026-10-01", "items": [{ "material": "CAFE LVE CAPS IN LG 10/5,2G", "unidades": 24 }, { "material": "TE SA LV FRUTILLA 20S", "unidades": 36 }, { "material": "TUY STEVIA LIQUIDO 200CC", "unidades": 24 }] },
+      { "fecha": "2026-09-03", "items": [{ "material": "CAFE LV PURO AROMA GR PA 500G", "unidades": 12 }, { "material": "MIX CAPP LV TRAD DE DP125G", "unidades": 24 }] }
+    ]
+  },
+  {
+    "id": "p05", "orden": 5, "estado": "cliente",
+    "nombre": "Almacén y Fiambrería Norte", "direccion": "Ayacucho 4920", "lat": -32.9921, "lng": -60.6512,
+    "categoria_actual": { "formato": "almacen", "nse": "bajo", "puntaje": -0.5, "fecha": "2022-07-11", "zona": "vulnerable" },
+    "observaciones": "Sumó una segunda caja este año.",
+    "mix_actual": { "economica": 70, "media": 30, "premium": 0 },
+    "ultimas_ventas": [
+      { "fecha": "2026-09-25", "items": [{ "material": "YERBA LITORAL CS ST 50S", "unidades": 30 }, { "material": "COND P/ CHIMI ST S 25G", "unidades": 40 }] }
+    ]
+  },
+  {
+    "id": "p06", "orden": 6, "estado": "nuevo",
+    "nombre": "Autoservicio La Paz", "direccion": "La Paz 180", "lat": -32.9615, "lng": -60.6398,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p07", "orden": 7, "estado": "nuevo",
+    "nombre": "Despensa La Floresta", "direccion": "Gaboto 652", "lat": -32.9668, "lng": -60.6420,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p08", "orden": 8, "estado": "cliente",
+    "nombre": "Minimercado Arijón", "direccion": "Arijón 1420", "lat": -32.9975, "lng": -60.6488,
+    "categoria_actual": { "formato": "autoservicio", "nse": "medio", "puntaje": -0.2, "fecha": "2022-03-30", "zona": "media" },
+    "observaciones": "Titulares nuevos desde 2025.",
+    "mix_actual": { "economica": 40, "media": 50, "premium": 10 },
+    "ultimas_ventas": [
+      { "fecha": "2026-09-30", "items": [{ "material": "CAFE SAQ LV TOR EQUI 20/5G", "unidades": 20 }, { "material": "HRB LV MANZANILLA 25S", "unidades": 24 }] }
+    ]
+  },
+  {
+    "id": "p09", "orden": 9, "estado": "nuevo",
+    "nombre": "Bar El Cruce", "direccion": "Av. Uriburu 1100", "lat": -32.9861, "lng": -60.6603,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p10", "orden": 10, "estado": "nuevo",
+    "nombre": "Autoservicio Grandoli", "direccion": "Grandoli 4210", "lat": -33.0012, "lng": -60.6430,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p11", "orden": 11, "estado": "nuevo",
+    "nombre": "Almacén Los Hermanos", "direccion": "Ovidio Lagos 5300", "lat": -32.9990, "lng": -60.6575,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  },
+  {
+    "id": "p12", "orden": 12, "estado": "nuevo",
+    "nombre": "Dietética Vida Sana", "direccion": "Av. Pellegrini 2150", "lat": -32.9560, "lng": -60.6590,
+    "categoria_actual": null, "observaciones": null, "mix_actual": null, "ultimas_ventas": []
+  }
+]

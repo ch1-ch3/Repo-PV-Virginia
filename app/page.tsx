@@ -1,12 +1,12 @@
 import { Encabezado } from "@/components/encabezado"
-import { ListaComercios } from "@/components/inicio/lista-comercios"
+import { ListaPuntos } from "@/components/puntos/lista-puntos"
 
 export default function InicioPage() {
   return (
     <>
-      <Encabezado />
-      <main className="mx-auto max-w-2xl px-4 pt-6 pb-32">
-        <ListaComercios />
+      <Encabezado subtitulo="Martín · Vendedor Rosario Sur" />
+      <main className="mx-auto max-w-2xl px-4 pt-5 pb-12">
+        <ListaPuntos />
       </main>
     </>
   )

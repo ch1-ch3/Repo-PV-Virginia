@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed-dim":"#e2c545","primary":"#002b6d","primary-pressed":"#0A3373","on-primary-fixed-variant":"#114295","on-tertiary-container":"#ff9969","surface-variant":"#d8e4f2","on-tertiary-fixed":"#351000","secondary":"#6f5d00","on-surface":"#121d27","inverse-surface":"#27313c","on-secondary":"#ffffff","primary-container":"#0e4194","inverse-primary":"#b0c6ff","surface-container":"#e4effe","tertiary-fixed":"#ffdbcc","surface-container-highest":"#d8e4f2","on-secondary-container":"#746100","surface-tint":"#325baf","tertiary":"#551e00","secondary-fixed":"#ffe165","surface-container-low":"#edf4ff","error":"#ba1a1a","on-primary-fixed":"#001945","surface-dim":"#d0dbea","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","error-container":"#ffdad6","outline":"#747783","surface-container-high":"#dee9f8","outline-variant":"#c3c6d3","on-tertiary-fixed-variant":"#7b2f01","on-primary-container":"#93b2ff","on-background":"#121d27","surface-bright":"#f7f9ff","secondary-container":"#fdde5c","success":"#627D47","primary-fixed":"#d9e2ff","background-base":"#F1F1F1","background":"#f7f9ff","tertiary-container":"#792e00","on-error-container":"#93000a","on-secondary-fixed":"#221b00","tier-premium":"#0E4194","tertiary-fixed-dim":"#ffb694","on-error":"#ffffff","surface":"#FFFFFF","on-secondary-fixed-variant":"#544600","primary-fixed-dim":"#b0c6ff","on-primary":"#ffffff","alert":"#C0392B","tier-economica":"#8A949E","accent-yellow":"#FFD302","border-subtle":"#E2E5E8","inverse-on-surface":"#e8f2ff","on-surface-variant":"#434652","tier-media":"#B09613"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"1rem","margin-mobile":"1rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xl":"1.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter-mobile":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"body-md-medium":["Inter"],"caption":["Inter"],"body-md":["Inter"],"headline-lg":["Inter"],"micro-badge":["Inter"],"caption-medium":["Inter"],"display":["Inter"]},"fontSize":{"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md-medium":["15px",{"lineHeight":"22px","fontWeight":"500"}],"caption":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"micro-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"caption-medium":["13px",{"lineHeight":"18px","fontWeight":"500"}],"display":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background-base font-body-md text-body-md text-on-surface min-h-screen"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-primary-container text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="w-full h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Logo Visita con Plan" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X30yEZBdggVlFME4zjkA8MqnvNu2YoaRpI3Dici8h2aE_lFW7zTtFuPUE8UuYd0fjlx6JBMl0aZOIkquWsQklpUsx4Z9FGnMvo-CWu8GdrZsDMDK8Kk1vDkzvmg709jGPNvkBl5QdC486yKb_skUH7JZ89Dkw7gQgC0wmfYDR6iEH214u1YFzCKwS9wD9k5YiwvxMWZnYD-nZFwdbmsMO9QHjcy7tuuYJ6hW_WvdD7"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">Visita con Plan</span><span class="font-caption text-caption text-primary-fixed-dim hidden sm:inline-block">| La Virginia</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="text-right hidden md:block"><p class="font-caption-medium text-caption-medium text-on-primary leading-tight">Martín</p><p class="font-micro-badge text-micro-badge text-primary-fixed-dim leading-tight">Vendedor Rosario Sur</p></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADeiyeb9lfQXXjlYo2wTMygiCdlUsPgyyvPkgkZjZRQu0H2CuByVgLdnC4DBj7ofrB_iBnuxk1jZbnJyVJYFgsKYIeQQKi6REchx4fs3sHVxU52YYW9HZhahplzYiCpQlIifWE6w4z2wvOuJHrKBXbcC6mS0vpPIF0p4knoNmc9_VeVAe4LzKxx9S5XLwqP5KtcDVpJDoYNBfsUl9DkMcfbL8esN3Q3SSTq6uqVEJV"/><span class="text-xs text-primary-fixed-dim md:hidden">Martín · Rosario Sur</span></div><a class="flex items-center gap-space-xs px-space-sm py-1.5 rounded text-primary-fixed-dim hover:text-on-primary hover:bg-primary-pressed transition-colors font-caption-medium text-caption-medium" data-path="login" href="#"><span class="material-symbols-outlined text-lg">logout</span><span class="hidden lg:inline">Cerrar sesión</span></a></div></div></header><aside class="fixed top-16 left-0 bottom-0 w-64 bg-surface z-40 flex flex-col justify-between py-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-md px-space-md"><div class="px-space-md py-space-xs"><p class="font-micro-badge text-micro-badge text-outline uppercase tracking-wider">Operaciones de Campo</p></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-body-md-medium"><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="puntos-de-venta" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span>Puntos de venta</span></a><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="mapa" href="#"><span class="material-symbols-outlined text-xl">map</span><span>Mapa</span></a><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="asistente" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span>Asistente</span></a></nav></div><div class="px-space-md pt-space-md"><div class="p-space-md rounded-lg bg-surface-container-low"><div class="flex items-center gap-space-xs text-primary font-caption-medium text-caption-medium mb-1"><span class="material-symbols-outlined text-base text-success">cloud_done</span><span>Sincronizado</span></div><p class="font-caption text-caption text-on-surface-variant">Ruta Rosario Sur activa</p></div></div></aside><div class="pl-64"><main class="w-full min-h-screen pt-16 px-margin py-space-lg bg-background-base"><div class="flex flex-col w-full relative">
+<!-- BACKGROUND VIEW: Contextual Store Profile & Analysis Result for Autoservicio San Cayetano -->
+<div class="w-full grid grid-cols-12 gap-space-lg select-none opacity-80 pointer-events-none lg:pr-[440px]">
+<!-- Top Action Breadcrumb & Quick Info -->
+<div class="col-span-12 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-surface p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">storefront</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Autoservicio San Cayetano</h1>
+<span class="bg-primary text-on-primary font-micro-badge text-micro-badge px-2 py-0.5 rounded-full uppercase">Cliente 3491</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Av. Arijón 1420, Rosario Sur · Última visita: hace 28 días
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col text-right">
+<span class="font-micro-badge text-micro-badge text-outline uppercase tracking-wider">Perfil Evaluado</span>
+<span class="font-caption-medium text-caption-medium text-alert font-bold">NSE Medio-Bajo (-0.4)</span>
+</div>
+<div class="h-8 w-px bg-surface-container-highest"></div>
+<div class="flex flex-col text-right">
+<span class="font-micro-badge text-micro-badge text-outline uppercase tracking-wider">Mix Sugerido</span>
+<span class="font-caption-medium text-caption-medium text-primary font-bold">16 SKUs · 44% Combate</span>
+</div>
+</div>
+</div>
+<!-- Store Diagnostic Banner -->
+<div class="col-span-12 bg-primary-container text-on-primary p-space-lg rounded-xl shadow-md flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-accent-yellow text-3xl">lightbulb</span>
+<div>
+<p class="font-headline-md text-headline-md text-accent-yellow leading-snug">Autoservicio chico de público medio-bajo. Arrancá por café molido 250 g y mate cocido.</p>
+<p class="font-caption text-caption text-surface-container-high">Diagnóstico IA en vivo validado con góndola de fiambres y ticket promedio fraccionado.</p>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-space-sm bg-primary px-space-md py-space-sm rounded-lg">
+<span class="material-symbols-outlined text-success text-base">verified</span>
+<span class="font-micro-badge text-micro-badge uppercase text-surface-bright tracking-wider">Góndola procesada</span>
+</div>
+</div>
+<!-- Background Card 1: Mix Stacked Distribution -->
+<div class="col-span-12 lg:col-span-7 bg-surface p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Mix Recomendado Actual</h2>
+<p class="font-caption text-caption text-on-surface-variant">Calculado para balancear margen y volumen rápido</p>
+</div>
+<span class="bg-surface-container-low text-primary px-2.5 py-1 rounded-full font-micro-badge text-micro-badge">16 SKUs totales</span>
+</div>
+<!-- Mix Stacked Bar -->
+<div class="w-full flex flex-col gap-space-xs">
+<div class="w-full h-4 rounded-lg overflow-hidden flex bg-surface-container-highest">
+<div class="h-full bg-tier-economica" style="width: 44%"></div>
+<div class="h-full bg-tier-media" style="width: 44%"></div>
+<div class="h-full bg-tier-premium" style="width: 12%"></div>
+</div>
+<div class="flex items-center justify-between pt-1 font-caption text-caption text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tier-economica"></span>
+<span>Económica (44%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tier-media"></span>
+<span>Media (44%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tier-premium"></span>
+<span>Premium (12%)</span>
+</div>
+</div>
+</div>
+<!-- Immediate Action Products -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="bg-tier-media text-on-primary font-micro-badge text-micro-badge px-1.5 py-0.5 rounded">Tier Media</span>
+<span class="text-alert font-micro-badge text-micro-badge uppercase">Quiebre</span>
+</div>
+<p class="font-body-md-medium text-body-md-medium text-on-surface truncate">Café Molido La Virginia 250g</p>
+<p class="font-caption text-caption text-on-surface-variant">$1.890 PVP sugerido · Margen 28%</p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="bg-tier-economica text-on-primary font-micro-badge text-micro-badge px-1.5 py-0.5 rounded">Tier Económica</span>
+<span class="text-success font-micro-badge text-micro-badge uppercase">Alta rotación</span>
+</div>
+<p class="font-body-md-medium text-body-md-medium text-on-surface truncate">Mate Cocido La Virginia x50</p>
+<p class="font-caption text-caption text-on-surface-variant">$980 PVP sugerido · Volumen</p>
+</div>
+</div>
+</div>
+<!-- Background Card 2: Price Comparison Benchmarks -->
+<div class="col-span-12 lg:col-span-5 bg-surface p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Precios Clave vs. Zona</h2>
+<p class="font-caption text-caption text-on-surface-variant">Comparativa barrial de 14 autoservicios en Rosario Sur</p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-caption font-caption">
+<span class="text-on-surface">Leche Entera 1L</span>
+<span class="font-caption-medium text-caption-medium text-alert font-bold">$1.400 (+12% vs. mediana)</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-alert h-full w-[78%]"></div>
+</div>
+<div class="flex items-center justify-between text-caption font-caption pt-1">
+<span class="text-on-surface">Aceite Girasol 900ml</span>
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">$1.650 (En mediana)</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-success h-full w-[50%]"></div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-highest flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">info</span>
+<p class="font-caption text-caption text-on-surface">Público con elasticidad reducida en primeras marcas.</p>
+</div>
+</div>
+</div>
+<!-- PERSISTENT / ELEVATED COPILOT DRAWER (DESKTOP: ~420px Fixed Right / MOBILE: Full Overlay) -->
+<aside class="fixed top-16 right-0 bottom-0 w-full sm:w-[420px] bg-surface z-50 flex flex-col shadow-2xl transition-transform duration-300 ease-out" id="copilot-drawer" style="box-shadow: -8px 0 32px rgba(14, 65, 148, 0.16);">
+<!-- Drawer Header: Brand, Context & Close -->
+<div class="bg-primary text-on-primary px-space-lg py-3 flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-primary-container flex items-center justify-center text-accent-yellow">
+<span class="material-symbols-outlined text-lg">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-headline-md text-on-primary text-sm leading-tight">Copilot v4.2</span>
+<span class="bg-accent-yellow text-primary font-micro-badge text-[9px] px-1 py-0.2 rounded font-bold uppercase tracking-wider">Activo</span>
+</div>
+<p class="font-caption text-caption text-primary-fixed-dim text-xs leading-none">Asistente en vivo para venta en salón</p>
+</div>
+</div>
+<button aria-label="Cerrar Asistente" class="w-8 h-8 rounded-lg flex items-center justify-center text-primary-fixed-dim hover:text-on-primary hover:bg-primary-pressed transition-colors" id="close-drawer-btn" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Current Store Badge Container -->
+<div class="flex items-center justify-between pt-1 bg-primary-pressed px-2.5 py-1.5 rounded-lg mt-0.5">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-accent-yellow text-sm shrink-0">store</span>
+<span class="font-caption-medium text-caption-medium text-on-primary truncate text-xs">Autoservicio San Cayetano</span>
+</div>
+<span class="font-micro-badge text-micro-badge bg-alert text-on-primary px-1.5 py-0.5 rounded tracking-wide shrink-0">
+          NSE Medio-Bajo (-0.4)
+        </span>
+</div>
+</div>
+<!-- Diagnostic Chip Strip -->
+<div class="bg-surface-container-low px-space-lg py-2 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-success text-base">cloud_sync</span>
+<span class="font-micro-badge text-micro-badge uppercase text-on-surface-variant tracking-wider">Contexto local cargado · 16 SKUs analizados</span>
+</div>
+<span class="font-micro-badge text-micro-badge text-primary-container font-semibold">Rosario Sur</span>
+</div>
+<!-- Suggested Fast Pitch Questions -->
+<div class="px-space-md py-2.5 bg-surface flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge uppercase text-outline tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">bolt</span> Sugerencias de negociación
+        </span>
+<span class="font-caption text-[11px] text-outline">Tocar para enviar</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="suggested-queries">
+<button class="query-chip whitespace-nowrap bg-surface-container-high hover:bg-surface-container text-primary font-caption-medium text-caption px-2.5 py-1 rounded-full transition-all text-xs active:scale-95 flex items-center gap-1" data-query="¿Con qué producto arranco la propuesta hoy?">
+<span>¿Con qué arranco?</span>
+</button>
+<button class="query-chip whitespace-nowrap bg-surface-container-high hover:bg-surface-container text-primary font-caption-medium text-caption px-2.5 py-1 rounded-full transition-all text-xs active:scale-95 flex items-center gap-1" data-query="¿Por qué el algoritmo dio NSE Medio-Bajo si la zona es Media?">
+<span>¿Por qué nivel bajo?</span>
+</button>
+<button class="query-chip whitespace-nowrap bg-surface-container-high hover:bg-surface-container text-primary font-caption-medium text-caption px-2.5 py-1 rounded-full transition-all text-xs active:scale-95 flex items-center gap-1" data-query="¿Qué tiene la competencia en esta cuadra?">
+<span>¿Qué tiene la competencia?</span>
+</button>
+<button class="query-chip whitespace-nowrap bg-surface-container-high hover:bg-surface-container text-primary font-caption-medium text-caption px-2.5 py-1 rounded-full transition-all text-xs active:scale-95 flex items-center gap-1" data-query="¿Cómo argumento el café molido frente al soluble?">
+<span>¿Cómo argumento el café molido?</span>
+</button>
+</div>
+</div>
+<!-- Conversation Stream Body -->
+<div class="flex-1 overflow-y-auto px-space-md py-space-md flex flex-col gap-space-md bg-background-base" id="chat-messages">
+<!-- Timestamp Anchor -->
+<div class="flex justify-center">
+<span class="bg-surface-container-highest text-outline font-micro-badge text-micro-badge px-2.5 py-0.5 rounded-full">
+          Hoy 10:42 AM · Visita en curso
+        </span>
+</div>
+<!-- Dialogue 1: User -->
+<div class="flex flex-col items-end gap-1 max-w-[88%] self-end">
+<div class="bg-primary text-on-primary px-space-md py-2.5 rounded-2xl rounded-tr-xs shadow-sm">
+<p class="font-body-md text-body-md text-sm leading-relaxed">¿Con qué producto arranco la propuesta hoy?</p>
+</div>
+<span class="font-caption text-[11px] text-outline px-1">10:42 AM · Leído</span>
+</div>
+<!-- Dialogue 1: Copilot Response -->
+<div class="flex flex-col items-start gap-1 max-w-[92%] self-start">
+<div class="flex items-center gap-1.5 px-1 mb-0.5">
+<span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-accent-yellow">
+<span class="material-symbols-outlined text-[10px]">smart_toy</span>
+</span>
+<span class="font-caption-medium text-caption-medium text-primary text-xs">La Virginia Copilot</span>
+</div>
+<div class="bg-surface text-on-surface px-space-md py-3 rounded-2xl rounded-tl-xs shadow-sm flex flex-col gap-2">
+<p class="font-body-md text-body-md text-sm leading-relaxed text-on-surface">
+            Arrancá directo con <strong class="text-primary font-semibold">Café Molido La Virginia Selección 250g</strong>. El dueño tiene quiebre de stock en café molido accesible y las segundas marcas de la zona están un 18% más caras.
+          </p>
+<div class="bg-surface-container-low p-2.5 rounded-lg">
+<p class="font-caption text-caption italic text-on-surface">
+              Decile: <span class="font-semibold text-primary">"Con este frío la rotación de café molido vuela y este paquete te deja 28% de margen directo."</span>
+</p>
+</div>
+<!-- Interactive SKU Action Pill -->
+<div class="bg-surface-bright p-2 rounded-lg flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-7 h-7 rounded bg-tier-media flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-sm">coffee</span>
+</span>
+<div class="truncate">
+<p class="font-caption-medium text-caption-medium text-on-surface text-xs truncate">Café Molido Selección 250g</p>
+<p class="font-caption text-[11px] text-on-surface-variant">$1.890 PVP · Faltante crítico</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-micro-badge text-[10px] px-2 py-1 rounded uppercase hover:bg-primary-pressed transition-colors shrink-0 flex items-center gap-1" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined text-xs\'&gt;check&lt;/span&gt; Agregado'; this.classList.replace('bg-primary','bg-success');">
+<span class="material-symbols-outlined text-xs">add</span> Sumar
+            </button>
+</div>
+</div>
+<span class="font-caption text-[11px] text-outline px-1">10:42 AM</span>
+</div>
+<!-- Dialogue 2: User -->
+<div class="flex flex-col items-end gap-1 max-w-[88%] self-end">
+<div class="bg-primary text-on-primary px-space-md py-2.5 rounded-2xl rounded-tr-xs shadow-sm">
+<p class="font-body-md text-body-md text-sm leading-relaxed">¿Por qué el algoritmo dio NSE Medio-Bajo si la zona es Media?</p>
+</div>
+<span class="font-caption text-[11px] text-outline px-1">10:43 AM · Leído</span>
+</div>
+<!-- Dialogue 2: Copilot Response -->
+<div class="flex flex-col items-start gap-1 max-w-[92%] self-start">
+<div class="flex items-center gap-1.5 px-1 mb-0.5">
+<span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-accent-yellow">
+<span class="material-symbols-outlined text-[10px]">smart_toy</span>
+</span>
+<span class="font-caption-medium text-caption-medium text-primary text-xs">La Virginia Copilot</span>
+</div>
+<div class="bg-surface text-on-surface px-space-md py-3 rounded-2xl rounded-tl-xs shadow-sm flex flex-col gap-2">
+<p class="font-body-md text-body-md text-sm leading-relaxed text-on-surface">
+            Detectamos que el <span class="font-semibold text-alert">65% de la góndola de fiambres y quesos son segundas marcas</span> y los clientes compran fraccionado diario. La leche está a $1.400 (+12% vs mediana).
+          </p>
+<p class="font-body-md text-body-md text-sm leading-relaxed text-on-surface">
+            Te conviene empujar el tier de combate: <strong class="text-primary font-semibold">Mate cocido x50</strong> y <strong class="text-primary font-semibold">Té clásico</strong>.
+          </p>
+<!-- Interactive SKU Action Pill -->
+<div class="bg-surface-bright p-2 rounded-lg flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-7 h-7 rounded bg-tier-economica flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-sm">emoji_food_beverage</span>
+</span>
+<div class="truncate">
+<p class="font-caption-medium text-caption-medium text-on-surface text-xs truncate">Mate Cocido La Virginia x50</p>
+<p class="font-caption text-[11px] text-on-surface-variant">$980 PVP · Tier Económica</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-micro-badge text-[10px] px-2 py-1 rounded uppercase hover:bg-primary-pressed transition-colors shrink-0 flex items-center gap-1" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined text-xs\'&gt;check&lt;/span&gt; Agregado'; this.classList.replace('bg-primary','bg-success');">
+<span class="material-symbols-outlined text-xs">add</span> Sumar
+            </button>
+</div>
+</div>
+<span class="font-caption text-[11px] text-outline px-1">10:43 AM</span>
+</div>
+<!-- Dynamic Insertion Point for Live Interaction -->
+<div class="flex flex-col gap-space-md" id="live-chat-anchor"></div>
+</div>
+<!-- Drawer Footer Input: Textarea, Voice Dictation & Action -->
+<div class="bg-surface p-space-md shadow-lg flex flex-col gap-2">
+<div class="relative flex items-center gap-2 bg-surface-container-low rounded-xl px-2 py-1">
+<!-- Voice Dictation Toggle -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0" id="mic-btn" title="Dictar consulta por voz" type="button">
+<span class="material-symbols-outlined text-xl">mic</span>
+</button>
+<!-- Message Field -->
+<input class="flex-1 bg-transparent py-2 px-1 text-sm font-body-md text-on-surface placeholder:text-outline focus:outline-none" id="chat-input" placeholder="Preguntale al Asistente sobre este local..." type="text"/>
+<!-- Send Button -->
+<button aria-label="Enviar mensaje al asistente" class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center hover:bg-primary-pressed active:scale-95 transition-all shrink-0" id="send-btn" type="button">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+<div class="flex items-center justify-between px-1">
+<span class="font-caption text-[11px] text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-success"></span> Latencia &lt; 400ms · Modo campo offline
+        </span>
+<button class="font-caption text-[11px] text-primary hover:underline" onclick="clearLiveChat()">Limpiar sesión</button>
+</div>
+</div>
+</aside>
+</div>
+<script>
+  (function() {
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const chatContainer = document.getElementById('chat-messages');
+    const liveAnchor = document.getElementById('live-chat-anchor');
+    const micBtn = document.getElementById('mic-btn');
+    const drawer = document.getElementById('copilot-drawer');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const quickChips = document.querySelectorAll('.query-chip');
+
+    let isRecording = false;
+
+    // Fast simulated intelligence replies
+    const knowledgeBase = {
+      competencia: {
+        bubble: "En esta cuadra el almacén 'Los Hermanos' tiene Arlistán 170g a $3.200. Tu ventaja es meter el **Café Torrado Clásico La Virginia 500g** a $2.950 dejando margen limpio al comerciante.",
+        sku: "Café Torrado Clásico 500g · $2.950 PVP"
+      },
+      molido: {
+        bubble: "El dueño te va a decir que el soluble se vende solo. Respondé: *'El cliente busca rendir la plata; con 250g de molido saca el triple de tazas que con el frasco chiquito y ahorra un 30% por pocillo'*.",
+        sku: "Café Molido Selección 250g · Argumento Rendimiento"
+      },
+      default: {
+        bubble: "Perfecto. Para Autoservicio San Cayetano la prioridad absoluta es rotación en fraccionado y no encarecer la canasta matinal. Meté primero Mate Cocido y Café Molido Selección.",
+        sku: "Pack Sugerido Mañana · 24 unidades totales"
+      }
+    };
+
+    function appendMessage(text, isUser = false, skuData = null) {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      
+      const wrapper = document.createElement('div');
+      wrapper.className = isUser 
+        ? "flex flex-col items-end gap-1 max-w-[88%] self-end animate-fadeIn" 
+        : "flex flex-col items-start gap-1 max-w-[92%] self-start animate-fadeIn";
+
+      if (isUser) {
+        wrapper.innerHTML = `
+          <div class="bg-primary text-on-primary px-space-md py-2.5 rounded-2xl rounded-tr-xs shadow-sm">
+            <p class="font-body-md text-body-md text-sm leading-relaxed">${escapeHtml(text)}</p>
+          </div>
+          <span class="font-caption text-[11px] text-outline px-1">${timeStr} · Enviado</span>
+        `;
+      } else {
+        let skuHtml = '';
+        if (skuData) {
+          skuHtml = `
+            <div class="bg-surface-bright p-2 rounded-lg flex items-center justify-between gap-2 shadow-sm mt-1">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-7 h-7 rounded bg-primary flex items-center justify-center text-accent-yellow shrink-0">
+                  <span class="material-symbols-outlined text-sm">inventory_2</span>
+                </span>
+                <p class="font-caption-medium text-caption-medium text-on-surface text-xs truncate">${skuData}</p>
+              </div>
+              <button class="bg-primary text-on-primary font-micro-badge text-[10px] px-2 py-1 rounded uppercase hover:bg-primary-pressed transition-colors shrink-0" onclick="this.innerHTML='Agregado'; this.classList.replace('bg-primary','bg-success');">
+                Sumar
+              </button>
+            </div>
+          `;
+        }
+
+        wrapper.innerHTML = `
+          <div class="flex items-center gap-1.5 px-1 mb-0.5">
+            <span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-accent-yellow">
+              <span class="material-symbols-outlined text-[10px]">smart_toy</span>
+            </span>
+            <span class="font-caption-medium text-caption-medium text-primary text-xs">La Virginia Copilot</span>
+          </div>
+          <div class="bg-surface text-on-surface px-space-md py-3 rounded-2xl rounded-tl-xs shadow-sm flex flex-col gap-2">
+            <p class="font-body-md text-body-md text-sm leading-relaxed text-on-surface">${formatMarkdown(text)}</p>
+            ${skuHtml}
+          </div>
+          <span class="font-caption text-[11px] text-outline px-1">${timeStr}</span>
+        `;
+      }
+
+      liveAnchor.appendChild(wrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function handleSend(userText) {
+      const text = (userText || input.value).trim();
+      if (!text) return;
+
+      appendMessage(text, true);
+      input.value = '';
+
+      // Typing feedback simulation
+      const typingIndicator = document.createElement('div');
+      typingIndicator.id = "typing-temp";
+      typingIndicator.className = "flex items-center gap-1.5 px-3 py-2 bg-surface rounded-full shadow-sm self-start text-outline text-xs";
+      typingIndicator.innerHTML = `
+        <span class="material-symbols-outlined text-xs animate-spin text-primary">autorenew</span>
+        <span>Copilot analizando góndola...</span>
+      `;
+      liveAnchor.appendChild(typingIndicator);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      setTimeout(() => {
+        const temp = document.getElementById('typing-temp');
+        if (temp) temp.remove();
+
+        const lower = text.toLowerCase();
+        let matched = knowledgeBase.default;
+        if (lower.includes('competencia')) matched = knowledgeBase.competencia;
+        else if (lower.includes('molido') || lower.includes('argumento')) matched = knowledgeBase.molido;
+
+        appendMessage(matched.bubble, false, matched.sku);
+      }, 650);
+    }
+
+    function formatMarkdown(str) {
+      return str
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary font-semibold">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="text-on-surface-variant font-medium">$1</em>');
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Voice dictation toggle micro-interaction
+    if (micBtn) {
+      micBtn.addEventListener('click', () => {
+        isRecording = !isRecording;
+        if (isRecording) {
+          micBtn.classList.add('bg-alert', 'text-on-primary', 'animate-pulse');
+          input.setAttribute('placeholder', 'Escuchando en vivo... hablá cerca del micrófono');
+          setTimeout(() => {
+            if (isRecording) {
+              input.value = "¿Qué tiene la competencia en esta cuadra?";
+              micBtn.click();
+            }
+          }, 2400);
+        } else {
+          micBtn.classList.remove('bg-alert', 'text-on-primary', 'animate-pulse');
+          input.setAttribute('placeholder', 'Preguntale al Asistente sobre este local...');
+        }
+      });
+    }
+
+    // Close button hides/slides drawer, clicking anywhere outside can toggle
+    if (closeBtn && drawer) {
+      closeBtn.addEventListener('click', () => {
+        drawer.classList.add('translate-x-full');
+      });
+    }
+
+    // Suggested Question Chips Click
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const query = chip.getAttribute('data-query');
+        handleSend(query);
+      });
+    });
+
+    // Enter Key Send
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleSend();
+        }
+      });
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', () => handleSend());
+    }
+
+    window.clearLiveChat = function() {
+      liveAnchor.innerHTML = '';
+    };
+  })();
+</script></main></div></body></html>
