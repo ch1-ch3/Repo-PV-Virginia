@@ -1,44 +1,78 @@
+"use client"
+
+import { useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, ListChecks, Tags } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
+import { ArrowLeft, ListChecks, Map as IconoMapa, MessageCircle, Tags } from "lucide-react"
+import { useSesion } from "@/components/datos/sesion"
+import { cn } from "@/components/utils"
 
 type Props = {
   titulo?: string
-  subtitulo?: string
+  subtitulo?: string // si no se pasa, muestra el vendedor
   volverA?: string // si está, muestra el botón de volver (siempre a una ruta fija, no al historial)
   textoVolver?: string
 }
 
+const SECCIONES = [
+  { href: "/", texto: "Puntos", Icono: ListChecks, activa: (p: string) => p === "/" || p.startsWith("/puntos") || p.startsWith("/visita") },
+  { href: "/mapa", texto: "Mapa", Icono: IconoMapa, activa: (p: string) => p.startsWith("/mapa") },
+  { href: "/asistente", texto: "Asistente", Icono: MessageCircle, activa: (p: string) => p.startsWith("/asistente") || p.startsWith("/comercio") },
+  { href: "/precios", texto: "Precios", Icono: Tags, activa: (p: string) => p.startsWith("/precios") },
+]
+
 export function Encabezado({ titulo, subtitulo, volverA, textoVolver = "Volver" }: Props) {
+  const ruta = usePathname()
+  const router = useRouter()
+  const { sesion } = useSesion()
+
+  // Login solo visual: sin sesión en este navegador, al login.
+  useEffect(() => {
+    if (sesion === null) router.replace("/login")
+  }, [sesion, router])
+
+  const vendedor = sesion ? `${sesion.nombre} · Vendedor ${sesion.zona}` : ""
+
   return (
     <header className="sticky top-0 z-20 bg-primary text-primary-foreground shadow-sm">
-      <div className="mx-auto flex h-14 max-w-2xl items-center gap-2 px-3">
+      <div className="mx-auto flex h-14 max-w-2xl items-center gap-1.5 px-2">
         {volverA ? (
           <Link
             href={volverA}
-            className="flex h-11 shrink-0 items-center gap-1 rounded-lg pr-2 pl-1 text-sm font-medium hover:bg-primary-pressed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amarillo"
+            className="flex h-11 shrink-0 items-center gap-1 rounded-lg px-2 text-sm font-medium hover:bg-primary-pressed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amarillo"
             aria-label={textoVolver}
           >
             <ArrowLeft className="size-5" aria-hidden="true" />
             <span className="hidden sm:inline">{textoVolver}</span>
           </Link>
         ) : (
-          <Link href="/" className="flex shrink-0 items-center gap-2 pr-1" aria-label="Inicio">
+          <Link href="/" className="flex shrink-0 items-center px-1.5" aria-label="Inicio">
             <span className="flex size-8 items-center justify-center rounded-md bg-amarillo text-sm font-black text-primary">LV</span>
           </Link>
         )}
         <div className="min-w-0 flex-1">
           <p className="truncate text-base leading-tight font-semibold">{titulo ?? "Visita con Plan"}</p>
-          {subtitulo && <p className="truncate text-xs leading-tight text-primary-foreground/75">{subtitulo}</p>}
+          <p className="truncate text-xs leading-tight text-primary-foreground/75">{subtitulo ?? vendedor}</p>
         </div>
-        <nav aria-label="Principal" className="flex items-center gap-0.5 text-sm font-medium">
-          <Link href="/" className="flex h-11 items-center gap-1.5 rounded-lg px-2.5 hover:bg-primary-pressed">
-            <ListChecks className="size-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Puntos</span>
-          </Link>
-          <Link href="/precios" className="flex h-11 items-center gap-1.5 rounded-lg px-2.5 hover:bg-primary-pressed">
-            <Tags className="size-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Precios</span>
-          </Link>
+        <nav aria-label="Principal" className="flex items-center text-sm font-medium">
+          {SECCIONES.map(({ href, texto, Icono, activa }) => {
+            const actual = activa(ruta)
+            return (
+              <Link
+                key={href}
+                href={href}
+                aria-label={texto}
+                aria-current={actual ? "page" : undefined}
+                className={cn(
+                  "flex h-11 min-w-10 items-center justify-center gap-1.5 rounded-lg px-2 hover:bg-primary-pressed",
+                  actual && "bg-primary-pressed text-amarillo",
+                )}
+              >
+                <Icono className="size-[18px]" aria-hidden="true" />
+                <span className="hidden md:inline">{texto}</span>
+              </Link>
+            )
+          })}
         </nav>
       </div>
     </header>

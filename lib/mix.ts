@@ -142,21 +142,24 @@ export function calcularMix(opciones: {
   }
 }
 
-// Los 3 faltantes para abrir la conversación: uno por línea, de la gama con más peso primero.
+// Los 3 faltantes para abrir la conversación: de líneas distintas, priorizando la gama con más peso;
+// si la segunda gama pesa al menos 25 %, uno de los tres sale de ahí.
 export function elegirOfrecerPrimero(mix: Mix, formato: FormatoNegocio): ProductoMix[] {
-  const pesoGama = (g: Gama) => mix.porcentajes[g]
+  const gamas = [...GAMAS].filter((g) => mix.porcentajes[g] > 0).sort((a, b) => mix.porcentajes[b] - mix.porcentajes[a])
   const candidatos = mix.productos
     .filter((p) => p.estado === "le_falta")
     .map((p) => ({ p, prio: prioridadPara(CATALOGO.find((c) => c.material === p.material)!, formato) }))
-    .sort((a, b) => pesoGama(b.p.gama) - pesoGama(a.p.gama) || b.prio - a.prio)
+    .sort((a, b) => gamas.indexOf(a.p.gama) - gamas.indexOf(b.p.gama) || b.prio - a.prio)
+    .map((c) => c.p)
+
   const elegidos: ProductoMix[] = []
-  const lineas = new Set<string>()
-  for (const { p } of candidatos) {
-    if (elegidos.length === 3) break
-    if (lineas.has(p.linea)) continue
-    lineas.add(p.linea)
-    elegidos.push(p)
+  const tomar = (filtro: (p: ProductoMix) => boolean) => {
+    const p = candidatos.find((c) => !elegidos.includes(c) && !elegidos.some((e) => e.linea === c.linea) && filtro(c))
+    if (p) elegidos.push(p)
   }
-  for (const { p } of candidatos) if (elegidos.length < 3 && !elegidos.includes(p)) elegidos.push(p)
-  return elegidos
+  tomar((p) => p.gama === gamas[0])
+  if (gamas[1] && mix.porcentajes[gamas[1]] >= 25) tomar((p) => p.gama === gamas[1])
+  while (elegidos.length < 3 && candidatos.some((c) => !elegidos.includes(c) && !elegidos.some((e) => e.linea === c.linea))) tomar(() => true)
+  for (const c of candidatos) if (elegidos.length < 3 && !elegidos.includes(c)) elegidos.push(c)
+  return elegidos.slice(0, 3)
 }

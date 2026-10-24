@@ -28,11 +28,11 @@ import { BarraMix, COLOR_GAMA } from "./barra-mix"
 import { ChatFicha } from "./chat-ficha"
 import { MedidorNSE } from "./medidor-nse"
 
-type Pestana = "categoria" | "mix" | "asistente"
+export type Pestana = "categoria" | "mix" | "asistente"
 
-export function VistaFicha({ id }: { id: string }) {
+export function VistaFicha({ id, pestanaInicial = "categoria" }: { id: string; pestanaInicial?: Pestana }) {
   const { data: ficha, error, isLoading } = useFicha(id)
-  const [pestana, setPestana] = useState<Pestana>("categoria")
+  const [pestana, setPestana] = useState<Pestana>(pestanaInicial)
 
   if (isLoading && !ficha) {
     return (
@@ -62,7 +62,14 @@ export function VistaFicha({ id }: { id: string }) {
   return (
     <div className="flex flex-col gap-4 pb-28">
       {ficha.origen === "demo" && (
-        <AvisoEjemplo texto="Análisis sin IA (no hay clave del modelo o falló): la categoría sale solo de las respuestas y datos cargados." />
+        <AvisoEjemplo
+          texto={
+            // Las visitas precargadas (data/fichas-demo.json) tienen id "demo-…".
+            ficha.id.startsWith("demo-")
+              ? "Visita de ejemplo precargada para la demo."
+              : "Análisis sin IA (no hay clave del modelo o falló): la categoría sale de las respuestas del dueño y las reglas."
+          }
+        />
       )}
 
       <header className="flex flex-col gap-1">

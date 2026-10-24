@@ -114,14 +114,23 @@ function armarPrecios(e: EntradaFicha): PrecioClave[] {
   return salida
 }
 
-const ARGUMENTO_GAMA: Record<Gama, string> = {
-  economica: "Tu público compra por precio: es la opción accesible de la marca y gira rápido.",
-  media: "Es el clásico que la gente ya conoce: rota seguro y no te ocupa más lugar.",
-  premium: "Tenés clientes que pagan por calidad: te sube el ticket y te diferencia de la competencia.",
+// Argumento de base (sin IA): qué tiene de bueno la línea + por qué esa gama le sirve a este público.
+const POR_LINEA: [RegExp, (n: string) => string][] = [
+  [/^CAFÉ|FUERA DEL/, (n) => `El café sale todos los días: ${n} te asegura rotación sin ocupar más góndola.`],
+  [/^TES|HERBORISTERIA/, (n) => `Las infusiones van en la compra del día y ocupan poco lugar: ${n} te suma variedad.`],
+  [/^YERBA/, (n) => `El mate cocido en saquitos se vende todo el año, sobre todo a la mañana: ${n} es venta segura.`],
+  [/^ESPECIAS|REPOSTERIA/, (n) => `Los sobres son compra de impulso y casi no ocupan lugar: ${n} te deja margen.`],
+  [/^PREPARADOS/, (n) => `Caldos y sopas acompañan la compra de todos los días, más en invierno: sumá ${n}.`],
+]
+const POR_GAMA: Record<Gama, string> = {
+  economica: "Tiene el precio que busca tu cliente.",
+  media: "Es el clásico que la gente ya conoce.",
+  premium: "Te sube el ticket con los clientes que pagan por calidad.",
 }
 
-export function argumentoBase(p: { nombre: string; gama: Gama }): string {
-  return `No tenés ${p.nombre} en góndola. ${ARGUMENTO_GAMA[p.gama]}`
+export function argumentoBase(p: { nombre: string; linea: string; gama: Gama }): string {
+  const frase = POR_LINEA.find(([re]) => re.test(p.linea))?.[1](p.nombre) ?? `${p.nombre} completa tu góndola con algo que hoy tu cliente busca en otro lado.`
+  return `${frase} ${POR_GAMA[p.gama]}`
 }
 
 export function armarFicha(e: EntradaFicha): FichaComercio {

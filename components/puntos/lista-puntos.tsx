@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { CheckCircle2, ChevronRight, MapPin, Plus, Search } from "lucide-react"
+import { CheckCircle2, ChevronRight, LogOut, MapPin, Plus, Search } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { usePuntos } from "@/components/datos/cliente"
+import { useSesion } from "@/components/datos/sesion"
 import { ETIQUETA_FORMATO, ETIQUETA_NSE, haceCuanto } from "@/components/datos/formato"
 import type { PuntoDeVenta } from "@/components/datos/tipos"
 import { BarraMix } from "@/components/ficha/barra-mix"
@@ -20,6 +22,8 @@ const FILTROS = [
 
 export function ListaPuntos() {
   const { data: puntos, error, isLoading, mutate } = usePuntos()
+  const { sesion, cerrar } = useSesion()
+  const router = useRouter()
   const [filtro, setFiltro] = useState<(typeof FILTROS)[number]["id"]>("todos")
   const [busqueda, setBusqueda] = useState("")
 
@@ -33,13 +37,25 @@ export function ListaPuntos() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <p className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-success uppercase">
-          <span className="size-2 rounded-full bg-success" aria-hidden="true" /> Jornada activa · Rosario Sur
-        </p>
-        <h1 className="text-2xl font-semibold text-balance">Mis puntos de venta</h1>
+        <div className="flex items-center justify-between gap-2">
+          <p className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-success uppercase">
+            <span className="size-2 rounded-full bg-success" aria-hidden="true" /> Jornada activa · Rosario Sur
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              cerrar()
+              router.replace("/login")
+            }}
+            className="inline-flex h-9 items-center gap-1 rounded-lg px-2 text-xs font-medium text-muted-foreground hover:bg-card"
+          >
+            <LogOut className="size-3.5" aria-hidden="true" /> Cerrar sesión
+          </button>
+        </div>
+        <h1 className="text-2xl font-semibold text-balance">{sesion ? `Hola, ${sesion.nombre}` : "Mis puntos de venta"}</h1>
         {puntos && (
           <p className="text-sm text-muted-foreground">
-            {puntos.length} asignados hoy · {visitados} visitados · {puntos.length - visitados} por visitar
+            Tus puntos de venta: {puntos.length} asignados hoy · {visitados} visitados · {puntos.length - visitados} por visitar
           </p>
         )}
       </div>
