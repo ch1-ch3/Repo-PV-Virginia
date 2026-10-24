@@ -1,0 +1,44 @@
+[
+  {
+    "id": "demo-autoservicio-zona-sur",
+    "creado": "2026-10-24T12:00:00.000Z",
+    "nombre": "Autoservicio Zona Sur (demo)",
+    "ubicacion": null,
+    "formato": {
+      "tipo": "autoservicio",
+      "tamano": "chico",
+      "cajas_estimadas": 2,
+      "metros_gondola_estimados": 18,
+      "justificacion": "Dos cajas, tres góndolas centrales, aprox. 60 m2."
+    },
+    "nse": {
+      "nivel": "medio",
+      "senales": ["Gaseosas de 1ª y 2ª marca", "Papel higiénico doble y simple hoja", "Vinos en botella de $4.000 a $9.000, sin tetra", "Sin aceite de oliva ni frutos secos"],
+      "confianza": 0.7
+    },
+    "gondola": { "estado": "regular", "observaciones": ["Café en 1 m de góndola", "Nuestra marca en el estante inferior"] },
+    "surtido": {
+      "tiene": [{ "producto": "Café molido 500 g", "observacion": "Estante inferior" }],
+      "falta": [
+        { "producto": "Café molido 250 g", "motivo": "Rota más en público medio" },
+        { "producto": "Mate cocido x 50", "motivo": "La categoría está en góndola y la marca no" },
+        { "producto": "Té en saquitos x 25", "motivo": "Surtido mínimo de autoservicio" }
+      ]
+    },
+    "ofrecer_primero": [
+      { "producto": "Café molido 250 g", "argumento": "Es el tamaño que más rota en tu público y ocupa el espacio de la competencia a precio similar." },
+      { "producto": "Mate cocido x 50", "argumento": "Ya vendés la categoría: te sumo la marca líder sin ocupar góndola nueva." }
+    ],
+    "pedido_sugerido": [
+      { "producto": "Café molido 250 g", "cantidad": 12, "unidad": "unidades" },
+      { "producto": "Mate cocido x 50", "cantidad": 6, "unidad": "unidades" }
+    ],
+    "competencia": [{ "marca": "Competidor A", "categoria": "café", "observacion": "70% de los frentes, promo 2x1 en torrado" }],
+    "precios_clave": [
+      { "producto": "papel_higienico", "descripcion": "Doble hoja x4", "precio": null },
+      { "producto": "aceite", "descripcion": "Girasol 1,5 L", "precio": null },
+      { "producto": "leche", "descripcion": "Sachet 1 L", "precio": null }
+    ],
+    "resumen": "Autoservicio chico de público medio. La marca está solo con molido 500 g abajo. Arrancá por molido 250 g y mate cocido x50."
+  }
+]
