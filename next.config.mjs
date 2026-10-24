@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Solo en Docker (NEXT_OUTPUT=standalone). En Vercel queda el build normal.
+  ...(process.env.NEXT_OUTPUT === "standalone" ? { output: "standalone" } : {}),
   async headers() {
     return [
       {

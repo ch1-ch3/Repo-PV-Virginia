@@ -1,44 +1,135 @@
 [
   {
-    "id": "demo-autoservicio-zona-sur",
-    "creado": "2026-10-24T12:00:00.000Z",
-    "nombre": "Autoservicio Zona Sur (demo)",
-    "ubicacion": null,
-    "formato": {
-      "tipo": "autoservicio",
-      "tamano": "chico",
-      "cajas_estimadas": 2,
-      "metros_gondola_estimados": 18,
-      "justificacion": "Dos cajas, tres góndolas centrales, aprox. 60 m2."
-    },
-    "nse": {
-      "nivel": "medio",
-      "senales": ["Gaseosas de 1ª y 2ª marca", "Papel higiénico doble y simple hoja", "Vinos en botella de $4.000 a $9.000, sin tetra", "Sin aceite de oliva ni frutos secos"],
-      "confianza": 0.7
-    },
-    "gondola": { "estado": "regular", "observaciones": ["Café en 1 m de góndola", "Nuestra marca en el estante inferior"] },
-    "surtido": {
-      "tiene": [{ "producto": "Café molido 500 g", "observacion": "Estante inferior" }],
-      "falta": [
-        { "producto": "Café molido 250 g", "motivo": "Rota más en público medio" },
-        { "producto": "Mate cocido x 50", "motivo": "La categoría está en góndola y la marca no" },
-        { "producto": "Té en saquitos x 25", "motivo": "Surtido mínimo de autoservicio" }
+    "id": "demo-san-cayetano-0909",
+    "creado": "2026-09-09T10:45:00-03:00",
+    "nombre": "Autoservicio San Cayetano",
+    "punto_id": "p01",
+    "tipos_fotos": ["fachada", "almacen", "bebidas", "leche", "aceite", "papel_higienico"],
+    "no_vende": [],
+    "respuestas": { "cajas": 0, "repositor": -1, "empleados": 0, "delivery": -1, "pedidos_faltantes": -1, "ticket": 0, "otros_locales": -1 },
+    "zona_confirmada": "media",
+    "extraccion": {
+      "formato": { "formato": "autoservicio", "cajas": 2, "gondolas": 5, "justificacion": "Dos cajas, cinco góndolas y heladera de lácteos." },
+      "criterios_foto": [
+        { "id": "gaseosas_cerveza", "valor": 0, "evidencia": "Coca-Cola y Manaos en la misma góndola" },
+        { "id": "vinos", "valor": -1, "evidencia": "Mayoría tetra y damajuana" },
+        { "id": "papel_limpieza", "valor": -1, "evidencia": "Hoja simple y lavandina suelta" },
+        { "id": "premium_saludable", "valor": -1, "evidencia": "No se ve oliva ni sin TACC" },
+        { "id": "marcas_basicos", "valor": 0, "evidencia": "Mezcla de primeras y segundas" },
+        { "id": "orden_carteles", "valor": 0, "evidencia": "Precios impresos, góndola ordenada" }
+      ],
+      "gondola": { "estado": "regular", "variedad": "media", "observaciones": ["Café en un solo estante, abajo", "Hueco en té en saquitos"] },
+      "tiene": [{ "material": "CAFE MOL LV TOR EQUIL 250G", "observacion": "2 frentes" }, { "material": "TE COMUN LV NAT INT 25S" }],
+      "competencia": [{ "marca": "Cabrales", "categoria": "café", "observacion": "Más frentes en molido" }],
+      "precios_clave": [
+        { "producto": "leche", "descripcion": "Sachet 1 L segunda marca", "precio": 1400 },
+        { "producto": "aceite", "descripcion": "Girasol 900 ml", "precio": 1650 },
+        { "producto": "papel_higienico", "descripcion": "Hoja simple x4", "precio": 1320 }
+      ],
+      "zona": { "sugerida": "media", "evidencia": "Casas bajas, veredas en buen estado" }
+    }
+  },
+  {
+    "id": "demo-don-tito-0920",
+    "creado": "2026-09-20T11:30:00-03:00",
+    "nombre": "Almacén Don Tito",
+    "punto_id": "p02",
+    "tipos_fotos": ["almacen", "limpieza", "leche", "papel_higienico"],
+    "no_vende": ["aceite"],
+    "respuestas": { "cajas": -1, "repositor": -1, "empleados": -1, "delivery": 0, "pedidos_faltantes": -1, "ticket": -1, "otros_locales": -1 },
+    "zona_confirmada": "vulnerable",
+    "extraccion": {
+      "formato": { "formato": "almacen", "cajas": 1, "gondolas": 2, "justificacion": "Mostrador con el dueño atrás y dos góndolas." },
+      "criterios_foto": [
+        { "id": "papel_limpieza", "valor": -1, "evidencia": "Papel hoja simple económico" },
+        { "id": "forma_venta", "valor": -1, "evidencia": "Azúcar y arroz fraccionados por kilo" },
+        { "id": "surtido", "valor": -1, "evidencia": "Pocas marcas, huecos en góndola" }
+      ],
+      "gondola": { "estado": "mala", "variedad": "baja", "observaciones": ["Productos en caja sobre el piso", "Precios a mano"] },
+      "tiene": [{ "material": "TE COMUN MO D1890 25 S" }],
+      "competencia": [{ "marca": "Taragüí", "categoria": "mate cocido", "observacion": "Único mate cocido en góndola" }],
+      "precios_clave": [
+        { "producto": "leche", "descripcion": "Sachet 1 L", "precio": 1250 },
+        { "producto": "papel_higienico", "descripcion": "Hoja simple x4 económico", "precio": 1150 }
       ]
-    },
-    "ofrecer_primero": [
-      { "producto": "Café molido 250 g", "argumento": "Es el tamaño que más rota en tu público y ocupa el espacio de la competencia a precio similar." },
-      { "producto": "Mate cocido x 50", "argumento": "Ya vendés la categoría: te sumo la marca líder sin ocupar góndola nueva." }
-    ],
-    "pedido_sugerido": [
-      { "producto": "Café molido 250 g", "cantidad": 12, "unidad": "unidades" },
-      { "producto": "Mate cocido x 50", "cantidad": 6, "unidad": "unidades" }
-    ],
-    "competencia": [{ "marca": "Competidor A", "categoria": "café", "observacion": "70% de los frentes, promo 2x1 en torrado" }],
-    "precios_clave": [
-      { "producto": "papel_higienico", "descripcion": "Doble hoja x4", "precio": null },
-      { "producto": "aceite", "descripcion": "Girasol 1,5 L", "precio": null },
-      { "producto": "leche", "descripcion": "Sachet 1 L", "precio": null }
-    ],
-    "resumen": "Autoservicio chico de público medio. La marca está solo con molido 500 g abajo. Arrancá por molido 250 g y mate cocido x50."
+    }
+  },
+  {
+    "id": "demo-norte-0925",
+    "creado": "2026-09-25T16:10:00-03:00",
+    "nombre": "Almacén y Fiambrería Norte",
+    "punto_id": "p05",
+    "tipos_fotos": ["fachada", "almacen", "cajas", "aceite"],
+    "no_vende": [],
+    "respuestas": { "cajas": 0, "repositor": 0, "empleados": 0, "delivery": 0, "pedidos_faltantes": 0, "ticket": 0 },
+    "zona_confirmada": null,
+    "extraccion": {
+      "formato": { "formato": "autoservicio", "cajas": 2, "gondolas": 4, "justificacion": "Dos cajas y cuatro góndolas: ya es autoservicio." },
+      "criterios_foto": [
+        { "id": "marcas_basicos", "valor": 0, "evidencia": "Mezcla de marcas" },
+        { "id": "orden_carteles", "valor": 0, "evidencia": "Precios impresos" },
+        { "id": "surtido", "valor": 0, "evidencia": "Varias marcas por categoría" }
+      ],
+      "gondola": { "estado": "buena", "variedad": "media", "observaciones": ["Góndola de infusiones a la altura de la vista"] },
+      "tiene": [{ "material": "YERBA LITORAL CS ST 50S" }, { "material": "COND P/ CHIMI ST S 25G" }],
+      "competencia": [],
+      "precios_clave": [{ "producto": "aceite", "descripcion": "Girasol 900 ml", "precio": 1500 }],
+      "zona": { "sugerida": "media", "evidencia": "Avenida comercial con tránsito" }
+    }
+  },
+  {
+    "id": "demo-super-oronio-1002",
+    "creado": "2026-10-02T09:20:00-03:00",
+    "nombre": "Súper Oroño",
+    "punto_id": null,
+    "tipos_fotos": ["fachada", "almacen", "bebidas", "limpieza", "cajas", "leche", "aceite", "papel_higienico"],
+    "no_vende": [],
+    "respuestas": { "cajas": 1, "repositor": 1, "empleados": 1, "delivery": 1, "pedidos_faltantes": 1, "ticket": 0, "otros_locales": 0 },
+    "zona_confirmada": "acomodada",
+    "extraccion": {
+      "formato": { "formato": "supermercado", "cajas": 4, "gondolas": 14, "justificacion": "Cuatro cajas, carnicería y verdulería propias." },
+      "criterios_foto": [
+        { "id": "gaseosas_cerveza", "valor": 1, "evidencia": "Cervezas importadas y artesanales" },
+        { "id": "vinos", "valor": 1, "evidencia": "Gama alta y espumantes" },
+        { "id": "premium_saludable", "valor": 1, "evidencia": "Oliva extra virgen, sin TACC, kombucha" },
+        { "id": "papel_limpieza", "valor": 1, "evidencia": "Triple hoja de marca" },
+        { "id": "orden_carteles", "valor": 1, "evidencia": "Exhibidores de marcas y góndola de ofertas" }
+      ],
+      "gondola": { "estado": "buena", "variedad": "alta", "observaciones": ["Puntera de café con cápsulas de la competencia"] },
+      "tiene": [{ "material": "CAFE LV PURO AROMA GR PA 500G" }, { "material": "TE SA LV LIMON 20S" }, { "material": "TUY STEVIA LIQUIDO 200CC" }],
+      "competencia": [{ "marca": "Nescafé Dolce Gusto", "categoria": "cápsulas", "observacion": "Puntera completa" }],
+      "precios_clave": [
+        { "producto": "leche", "descripcion": "Larga vida 1 L primera marca", "precio": 1550 },
+        { "producto": "aceite", "descripcion": "Girasol 1,5 L primera marca", "precio": 1850 },
+        { "producto": "papel_higienico", "descripcion": "Triple hoja x4", "precio": 1600 }
+      ],
+      "zona": { "sugerida": "acomodada", "evidencia": "Edificios en altura, comercios de marca" }
+    }
+  },
+  {
+    "id": "demo-los-pinos-1010",
+    "creado": "2026-10-10T17:40:00-03:00",
+    "nombre": "Autoservicio Los Pinos",
+    "punto_id": null,
+    "tipos_fotos": ["almacen", "bebidas", "leche", "aceite", "papel_higienico"],
+    "no_vende": [],
+    "respuestas": { "cajas": 0, "repositor": 0, "empleados": 0, "delivery": -1, "pedidos_faltantes": 0, "ticket": 0 },
+    "zona_confirmada": "media",
+    "extraccion": {
+      "formato": { "formato": "autoservicio", "cajas": 2, "gondolas": 6, "justificacion": "Dos cajas y seis góndolas." },
+      "criterios_foto": [
+        { "id": "gaseosas_cerveza", "valor": 0, "evidencia": "Primeras y segundas marcas" },
+        { "id": "vinos", "valor": 0, "evidencia": "Botellas de gama media" },
+        { "id": "marcas_basicos", "valor": 0, "evidencia": "Mezcla" }
+      ],
+      "gondola": { "estado": "regular", "variedad": "media", "observaciones": ["Infusiones mezcladas con galletitas"] },
+      "tiene": [{ "material": "INST LV CLA ESP INST DP170G" }],
+      "competencia": [{ "marca": "Arlistán", "categoria": "café instantáneo", "observacion": "Promo 2x1" }],
+      "precios_clave": [
+        { "producto": "leche", "descripcion": "Sachet 1 L primera marca", "precio": 1300 },
+        { "producto": "aceite", "descripcion": "Girasol 900 ml", "precio": 1700 },
+        { "producto": "papel_higienico", "descripcion": "Doble hoja x4", "precio": 1350 }
+      ]
+    }
   }
 ]

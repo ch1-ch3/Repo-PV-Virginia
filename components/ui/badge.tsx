@@ -12,6 +12,8 @@ const badgeVariants = cva(
         success: "bg-accent text-accent-foreground",
         warning: "bg-warning text-warning-foreground",
         outline: "border text-foreground",
+        oro: "bg-oro text-white",
+        alerta: "bg-destructive/10 text-destructive",
       },
     },
     defaultVariants: { variant: "default" },

@@ -1,0 +1,182 @@
+                                                                                                           Shippear 3 · Rosario
+                                                                                                         24 de octubre de 2026
+                                                                                                               Facundo Bontje
+
+
+
+
+Guía del punto de venta
+Material de apoyo para el caso Perfil del Punto de Venta
+
+
+  Objetivo
+Leer un comercio nuevo a partir de fotos de sus góndolas y unas pocas preguntas al dueño, para saber qué tipo
+de negocio es, a qué nivel socioeconómico le vende y qué le conviene ofrecer. Las referencias de esta guía son
+orientativas: sirven para decidir rápido, no para clasificar con precisión.
+
+
+  Tipos de negocio
+ Tipo                                Cuándo es
+
+ Almacén y kiosco                    Comercio de barrio atendido por el dueño, con mostrador y poca góndola.
+
+ Autoservicio                        El cliente se sirve solo, con góndolas y una o más cajas.
+
+ Supermercado                        Autoservicio grande, con varias cajas, secciones de frescos y, a veces, marca
+                                     propia.
+
+ Mayorista                           Vende por caja o bulto a otros comercios, no al consumidor final.
+
+ Gastronomía y hotelería             El producto se consume en el lugar: bares, restaurantes, hoteles.
+
+ Institucional                       Público cautivo de una organización: oficinas, comedores, máquinas expendedoras.
+
+ Especializado y otros               Vende una categoría puntual o por un canal distinto: dietética, estación de servicio,
+                                     venta online.
+
+
+
+  Formatos de negocio
+ Tipo                       Formato                        Cuándo es
+
+ Almacén y kiosco           Kiosco                         Ventana o mostrador chico: golosinas, cigarrillos y bebidas frías.
+                                                           Casi sin góndola.
+
+ Almacén y kiosco           Almacén                        Mostrador con el dueño atrás, una o dos góndolas y una sola
+                                                           caja.
+
+ Autoservicio               Autoservicio                   De 3 a 8 góndolas, una o dos cajas y heladeras de bebidas y
+                                                           lácteos.
+
+ Autoservicio               Autoservicio amarillo          Titulares asiáticos, góndolas altas y pasillos angostos. Compran
+                            (A4)                           por precio y volumen.
+
+ Supermercado               Supermercado                   Tres o más cajas, carnicería o verdulería propias, góndolas de
+                                                           varios proveedores.
+
+ Supermercado               Hipermercado                   Superficie enorme, además de comestibles vende bazar, electro
+                                                           y ropa.
+
+ Mayorista                  Mayorista o                    Vende por caja o bulto, sin atención de mostrador al
+                            distribuidor                   consumidor.
+
+
+
+
+                                                     La Virginia · Shippear 3 · 1 / 3
+ Tipo                          Formato                      Cuándo es
+
+ Gastronomía y                 Bar y cafetería              Se consume en el lugar, tienen máquina de café y se vende por
+ hotelería                                                  taza.
+
+ Gastronomía y                 Restaurante y hotel          Cocina propia o desayuno incluido, compran por volumen y por
+ hotelería                                                  proveedor.
+
+ Institucional                 Oficina y catering           Compra para empleados o comensales de una empresa, un
+                                                            comedor o un evento.
+
+ Institucional                 Vending                      Máquinas expendedoras que se reponen por ruta.
+
+ Especializado y otros         Dietética                    Productos naturales y saludables, muchas veces a granel.
+
+ Especializado y otros         Estación de servicio         Minimercado de paso: bebidas, snacks y café para llevar.
+
+ Especializado y otros         E-commerce                   Vende solo por internet y entrega a domicilio.
+
+Si un local mezcla dos formatos, se toma el más grande: un almacén con tres góndolas y dos cajas ya es un autoservicio.
+
+
+  Nivel socioeconómico
+ Nivel           Cuándo es                               Qué se ve en la góndola
+
+   Alto          Público que compra marca,               Primeras marcas, importados, vinos de botella de gama alta,
+                 gama alta y conveniencia.               aceite de oliva extra virgen, sin TACC, café en cápsulas o de
+                                                         especialidad. Varios medios de pago.
+
+   Medio         Público que mezcla primeras y           Conviven las dos, vinos de gama media, algo de premium. Posnet
+                 segundas marcas según el                o QR.
+                 producto.
+
+   Bajo          Público que compra por precio y         Segundas marcas, vino en tetra, productos fraccionados o sueltos,
+                 en cantidades chicas.                   precios a mano. Solo efectivo.
+
+Las referencias van por gama y no por precio en pesos, para que no envejezcan con la inflación.
+
+
+  Preguntas para determinar el nivel
+Cada respuesta suma o resta un punto: −1 si apunta a público bajo, 0 si es medio y +1 si es alto. Si una categoría
+no aparece, por ejemplo no hay papel higiénico, no se cuenta y se sigue con las demás. Alcanza con las gaseosas o
+con lo que haya.
+
+En la foto de las góndolas
+
+ Qué mirar                   Bajo (−1)                             Medio (0)               Alto (+1)
+
+ Gaseosas y cerveza          Solo segundas marcas:                 Primeras y segundas     Primeras marcas, importadas,
+                             Manaos, Cunnington, lata              marcas.                 artesanales, aguas saborizadas.
+                             económica.
+
+ Vinos                       Tetra, damajuana, vino en             Botellas de gama        Gama alta, espumantes, gin o
+                             caja.                                 media.                  whisky importado.
+
+ Papel higiénico y           Hoja simple económico,                De los dos tipos.       Doble o triple hoja de marca,
+ limpieza                    lavandina suelta.                                             limpiadores de marca.
+
+
+
+
+                                                      La Virginia · Shippear 3 · 2 / 3
+ Qué mirar               Bajo (−1)                               Medio (0)                  Alto (+1)
+
+ Premium y               Nada de eso.                            Una o dos cosas: oliva     Varias: oliva extra virgen, sin
+ saludable                                                       común, frutos secos a      TACC, orgánico, kombucha, café
+                                                                 granel.                    en cápsulas.
+
+ Galletitas, yerba,      Mayoría segundas marcas o               Mezcla.                    Mayoría primeras marcas.
+ fideos y aceite         marcas blancas.
+
+ Cómo se vende           Fraccionado y suelto: azúcar o          Nada de eso.               Multipacks y formatos familiares.
+                         arroz por kilo, sachets,
+                         cigarrillos sueltos.
+
+ Cuánto surtido          Pocos productos y pocas                 Varias marcas en las       Muchas marcas y
+ tiene                   variedades, góndolas con                categorías principales.    presentaciones por categoría,
+                         huecos.                                                            góndolas llenas.
+
+ Orden y carteles        Productos en caja, precios a            Góndola ordenada,          Exhibidores y carteles de
+                         mano.                                   precios impresos.          marcas, góndola de ofertas.
+
+El surtido también dice cuántos productos ofrecer: si es bajo, se empieza por pocas presentaciones, las de más rotación.
+
+Al dueño, por audio
+Se hacen de charla y se graban en un audio corto.
+
+ Pregunta                     Bajo (−1)                               Medio (0)             Alto (+1)
+
+ ¿Cuántas cajas tenés?        Una, la atiende el dueño.               Dos.                  Tres o más.
+
+ ¿Quién te repone?            El dueño.                               Un empleado.          Repositores de las marcas o
+                                                                                            repositor propio.
+
+ ¿Cuántos trabajan acá?       El dueño o la familia.                  De 2 a 4.             5 o más, con turnos.
+
+ ¿Hacés delivery o vendés     No.                                     Delivery propio por   PedidosYa, Rappi o tienda online.
+ por apps?                                                            teléfono.
+
+ ¿Qué te pide la gente        Cosas más baratas,                      No sabe, o de todo.   Premium, importados, sin TACC,
+ que no tenés?                fraccionadas o sueltas.                                       café de especialidad.
+
+ ¿Cuánto se lleva cada        Pocas unidades, compra del              La compra del día.    Compra grande o de la semana.
+ cliente?                     momento.
+
+
+   Cómo se decide. Se suman todas las respuestas, de la foto y del audio, y se divide por la cantidad de
+   preguntas respondidas: +0,3 o más es alto, −0,3 o menos es bajo y el resto es medio. Con menos de cuatro
+   respuestas se queda en medio y se pide otra foto. Si la foto y el dueño dicen cosas distintas, también se
+   queda en medio.
+
+
+
+
+                                                    La Virginia · Shippear 3 · 3 / 3
+

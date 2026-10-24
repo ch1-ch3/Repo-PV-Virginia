@@ -9,9 +9,10 @@ import { Card, CardTitle } from "@/components/ui/card"
 import { cn } from "@/components/utils"
 
 const SUGERENCIAS = [
+  "¿Con qué arranco?",
+  "¿Por qué quedó en este nivel?",
   "¿Qué le digo si dice que no tiene lugar?",
-  "¿Cómo le gano a la competencia?",
-  "Achicá el pedido a la mitad",
+  "¿Qué tiene la competencia?",
 ]
 
 export function ChatFicha({ ficha }: { ficha: FichaComercio }) {
@@ -34,7 +35,8 @@ export function ChatFicha({ ficha }: { ficha: FichaComercio }) {
 
   return (
     <Card aria-labelledby="titulo-chat">
-      <CardTitle id="titulo-chat">Repreguntar</CardTitle>
+      <CardTitle id="titulo-chat">Asistente</CardTitle>
+      <p className="text-sm text-muted-foreground">Preguntá sobre este comercio: conoce la categoría, el mix y los precios.</p>
 
       {mensajes.length === 0 ? (
         <div className="flex flex-wrap gap-2">
@@ -56,7 +58,7 @@ export function ChatFicha({ ficha }: { ficha: FichaComercio }) {
               key={i}
               className={cn(
                 "max-w-[85%] rounded-xl px-3 py-2 text-base leading-relaxed whitespace-pre-wrap",
-                m.rol === "vendedor" ? "self-end bg-foreground text-background" : "self-start bg-muted",
+                m.rol === "vendedor" ? "self-end bg-primary text-primary-foreground" : "self-start bg-muted",
               )}
             >
               <span className="sr-only">{m.rol === "vendedor" ? "Vos: " : "Asistente: "}</span>

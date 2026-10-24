@@ -1,43 +1,17 @@
 import type { FichaComercio } from "./tipos"
 
-export const ETIQUETA_TIPO: Record<FichaComercio["formato"]["tipo"], string> = {
-  almacen: "Almacén",
-  autoservicio: "Autoservicio",
-  kiosco: "Kiosco",
-  despensa: "Despensa",
-  cafeteria: "Cafetería",
-  supermercado: "Supermercado",
-  otro: "Otro",
-}
-
-export const ETIQUETA_TAMANO: Record<FichaComercio["formato"]["tamano"], string> = {
-  chico: "Chico",
-  mediano: "Mediano",
-  grande: "Grande",
-}
-
-export const ETIQUETA_NSE: Record<FichaComercio["nse"]["nivel"], string> = {
-  bajo: "Bajo",
-  "medio-bajo": "Medio-bajo",
-  medio: "Medio",
-  "medio-alto": "Medio-alto",
-  alto: "Alto",
-}
-
-export const ETIQUETA_GONDOLA: Record<FichaComercio["gondola"]["estado"], string> = {
-  buena: "Buena",
-  regular: "Regular",
-  mala: "Mala",
-}
-
-export const ETIQUETA_PRECIO: Record<FichaComercio["precios_clave"][number]["producto"], string> = {
-  papel_higienico: "Papel higiénico",
-  aceite: "Aceite",
-  leche: "Leche",
-  cafe: "Café",
-  yerba: "Yerba",
-  otro: "Otro",
-}
+export {
+  ETIQUETA_ESTADO_PRECIO,
+  ETIQUETA_FORMATO,
+  ETIQUETA_GAMA,
+  ETIQUETA_NSE,
+  ETIQUETA_PRODUCTO_CLAVE,
+  ETIQUETA_TIPO,
+  ETIQUETA_ZONA,
+  FOTOS_VISITA,
+  PRODUCTOS_CON_PRECIO,
+} from "@/lib/etiquetas"
+export { formatearPuntaje } from "@/lib/nse"
 
 const formatoMoneda = new Intl.NumberFormat("es-AR", {
   style: "currency",
@@ -49,7 +23,7 @@ export function formatearPrecio(precio: number | null) {
   return precio === null ? null : formatoMoneda.format(precio)
 }
 
-const formatoFecha = new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "short" })
+const formatoFecha = new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "short", year: "numeric" })
 const formatoFechaHora = new Intl.DateTimeFormat("es-AR", {
   day: "numeric",
   month: "short",
@@ -58,16 +32,20 @@ const formatoFechaHora = new Intl.DateTimeFormat("es-AR", {
 })
 
 export function formatearFecha(iso: string, conHora = false) {
-  const fecha = new Date(iso)
+  const fecha = new Date(iso.length === 10 ? `${iso}T12:00:00-03:00` : iso)
   if (Number.isNaN(fecha.getTime())) return ""
   return (conHora ? formatoFechaHora : formatoFecha).format(fecha)
 }
 
-export function nombreComercio(ficha: FichaComercio) {
-  return ficha.nombre?.trim() || `${ETIQUETA_TIPO[ficha.formato.tipo]} sin nombre`
+export function haceCuanto(iso: string) {
+  const dias = Math.floor((Date.now() - new Date(iso.length === 10 ? `${iso}T12:00:00-03:00` : iso).getTime()) / 86_400_000)
+  if (dias <= 0) return "hoy"
+  if (dias === 1) return "ayer"
+  if (dias < 60) return `hace ${dias} días`
+  if (dias < 730) return `hace ${Math.round(dias / 30)} meses`
+  return `hace ${Math.round(dias / 365)} años`
 }
 
-export function textoPedido(ficha: FichaComercio) {
-  const lineas = ficha.pedido_sugerido.map((item) => `- ${item.cantidad} ${item.unidad} · ${item.producto}`)
-  return [`Pedido sugerido · ${nombreComercio(ficha)}`, ...lineas].join("\n")
+export function nombreComercio(ficha: Pick<FichaComercio, "nombre">) {
+  return ficha.nombre?.trim() || "Comercio sin nombre"
 }

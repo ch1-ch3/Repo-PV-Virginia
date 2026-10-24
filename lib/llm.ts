@@ -8,6 +8,10 @@ export type Turno = { rol: "user" | "assistant"; texto: string }
 
 type Opciones = { sistema: string; turnos: Turno[]; imagenes?: Imagen[]; json?: boolean }
 
+export function hayModelo(): boolean {
+  return !!(process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY)
+}
+
 function proveedor(): "gemini" | "openai" | "anthropic" {
   if (process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY) return "gemini"
   if (process.env.OPENAI_API_KEY) return "openai"

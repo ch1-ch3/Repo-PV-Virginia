@@ -1,23 +1,67 @@
-import { generar } from "@/lib/llm"
+import { responderSinModelo } from "@/lib/asistente-demo"
+import { generar, hayModelo } from "@/lib/llm"
 import { PROMPT_SISTEMA } from "@/lib/prompt"
 import { obtenerFicha } from "@/lib/db"
+import { ETIQUETA_ESTADO_PRECIO, ETIQUETA_FORMATO, ETIQUETA_GAMA, ETIQUETA_PRODUCTO_CLAVE } from "@/lib/etiquetas"
 import type { FichaComercio, MensajeChat } from "@/lib/types"
 
 export const runtime = "nodejs"
 export const maxDuration = 60
+
+// Contexto compacto de la ficha: lo que el vendedor ve en pantalla, sin ruido.
+function contextoFicha(f: FichaComercio): string {
+  const criterios = f.nse.criterios
+    .filter((c) => c.valor !== null)
+    .map((c) => `${c.etiqueta} (${c.fuente === "foto" ? "foto" : "dueño"}): ${c.evidencia} → ${c.valor! > 0 ? "+1" : c.valor}`)
+  const mix = f.mix.productos.map((p) => `${p.nombre} [${ETIQUETA_GAMA[p.gama]}, ${p.estado === "ya_tiene" ? "ya tiene" : "le falta"}]`)
+  const precios = f.precios_clave.map(
+    (p) => `${ETIQUETA_PRODUCTO_CLAVE[p.producto]}: ${p.precio !== null ? `$${p.precio} (${p.descripcion})` : ETIQUETA_ESTADO_PRECIO[p.estado]}`,
+  )
+  return [
+    `Comercio: ${f.nombre ?? "sin nombre"} · ${ETIQUETA_FORMATO[f.formato.formato]} · cajas ${f.formato.cajas_estimadas ?? "?"} · góndolas ${f.formato.gondolas_estimadas ?? "?"}`,
+    `NSE ${f.nse.nivel} · ${f.nse.explicacion}`,
+    `Criterios: ${criterios.join("; ") || "sin datos"}`,
+    `Zona: ${f.zona.confirmada ?? f.zona.sugerida ?? "sin dato"} · Góndola: ${f.gondola.estado ?? "sin dato"}, variedad ${f.gondola.variedad ?? "sin dato"}. ${f.gondola.observaciones.join("; ")}`,
+    `Mix (${f.mix.porcentajes.economica}% económica / ${f.mix.porcentajes.media}% media / ${f.mix.porcentajes.premium}% premium): ${mix.join("; ")}`,
+    `Ofrecer primero: ${f.ofrecer_primero.map((o) => `${o.nombre} — ${o.argumento}`).join(" | ")}`,
+    `Competencia: ${f.competencia.map((c) => `${c.marca} (${c.categoria}): ${c.observacion}`).join("; ") || "no se vio"}`,
+    `Precios clave: ${precios.join("; ")}`,
+    f.recategorizacion?.cambio ? `Recategorización: ${f.recategorizacion.motivo}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n")
+}
+
+function textoEnPartes(texto: string): Response {
+  const palabras = texto.split(/(?<=\s)/)
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const enc = new TextEncoder()
+      for (let i = 0; i < palabras.length; i += 3) {
+        controller.enqueue(enc.encode(palabras.slice(i, i + 3).join("")))
+        await new Promise((ok) => setTimeout(ok, 35))
+      }
+      controller.close()
+    },
+  })
+  return new Response(stream, { headers: { "content-type": "text/plain; charset=utf-8" } })
+}
 
 // Body: { fichaId?: string, ficha?: FichaComercio, mensajes: MensajeChat[] }
 // Respuesta: texto plano
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as { fichaId?: string; ficha?: FichaComercio; mensajes?: MensajeChat[] }
-    const ficha = body.ficha ?? (body.fichaId ? await obtenerFicha(body.fichaId) : null)
+    const ficha = body.ficha?.mix ? body.ficha : body.fichaId ? await obtenerFicha(body.fichaId) : null
     const mensajes = (body.mensajes ?? []).filter((m) => m.texto?.trim())
     if (!ficha) return Response.json({ error: "Falta la ficha del comercio" }, { status: 400 })
     if (mensajes.length === 0) return Response.json({ error: "Falta la pregunta" }, { status: 400 })
+    // Sin clave del modelo: respuesta armada con los datos de la ficha, enviada de a pedazos como un chat.
+    if (!hayModelo()) return textoEnPartes(responderSinModelo(ficha, mensajes[mensajes.length - 1].texto))
 
-    const contexto = `Ficha del comercio generada a partir de las fotos de la visita:\n${JSON.stringify(ficha)}\n
-Respondé la pregunta del vendedor en 2 a 5 líneas, con algo que pueda decir o hacer ya. Si la ficha no tiene el dato, decilo.`
+    const contexto = `Ficha del comercio armada en esta visita:\n${contextoFicha(ficha)}\n
+Respondé la pregunta del vendedor en 2 a 5 líneas, con algo que pueda decir o hacer ya. Recomendá solo productos del
+catálogo, preferentemente del mix. Si la ficha no tiene el dato, decilo.`
 
     const turnos = mensajes.map((m) => ({
       rol: m.rol === "vendedor" ? ("user" as const) : ("assistant" as const),

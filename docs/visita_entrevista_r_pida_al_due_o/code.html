@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed-dim":"#e2c545","primary":"#002b6d","primary-pressed":"#0A3373","on-primary-fixed-variant":"#114295","on-tertiary-container":"#ff9969","surface-variant":"#d8e4f2","on-tertiary-fixed":"#351000","secondary":"#6f5d00","on-surface":"#121d27","inverse-surface":"#27313c","on-secondary":"#ffffff","primary-container":"#0e4194","inverse-primary":"#b0c6ff","surface-container":"#e4effe","tertiary-fixed":"#ffdbcc","surface-container-highest":"#d8e4f2","on-secondary-container":"#746100","surface-tint":"#325baf","tertiary":"#551e00","secondary-fixed":"#ffe165","surface-container-low":"#edf4ff","error":"#ba1a1a","on-primary-fixed":"#001945","surface-dim":"#d0dbea","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","error-container":"#ffdad6","outline":"#747783","surface-container-high":"#dee9f8","outline-variant":"#c3c6d3","on-tertiary-fixed-variant":"#7b2f01","on-primary-container":"#93b2ff","on-background":"#121d27","surface-bright":"#f7f9ff","secondary-container":"#fdde5c","success":"#627D47","primary-fixed":"#d9e2ff","background-base":"#F1F1F1","background":"#f7f9ff","tertiary-container":"#792e00","on-error-container":"#93000a","on-secondary-fixed":"#221b00","tier-premium":"#0E4194","tertiary-fixed-dim":"#ffb694","on-error":"#ffffff","surface":"#FFFFFF","on-secondary-fixed-variant":"#544600","primary-fixed-dim":"#b0c6ff","on-primary":"#ffffff","alert":"#C0392B","tier-economica":"#8A949E","accent-yellow":"#FFD302","border-subtle":"#E2E5E8","inverse-on-surface":"#e8f2ff","on-surface-variant":"#434652","tier-media":"#B09613"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"1rem","margin-mobile":"1rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xl":"1.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter-mobile":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"body-md-medium":["Inter"],"caption":["Inter"],"body-md":["Inter"],"headline-lg":["Inter"],"micro-badge":["Inter"],"caption-medium":["Inter"],"display":["Inter"]},"fontSize":{"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md-medium":["15px",{"lineHeight":"22px","fontWeight":"500"}],"caption":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"micro-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"caption-medium":["13px",{"lineHeight":"18px","fontWeight":"500"}],"display":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background-base font-body-md text-body-md text-on-surface min-h-screen"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-primary-container text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="w-full h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Logo Visita con Plan" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X30yEZBdggVlFME4zjkA8MqnvNu2YoaRpI3Dici8h2aE_lFW7zTtFuPUE8UuYd0fjlx6JBMl0aZOIkquWsQklpUsx4Z9FGnMvo-CWu8GdrZsDMDK8Kk1vDkzvmg709jGPNvkBl5QdC486yKb_skUH7JZ89Dkw7gQgC0wmfYDR6iEH214u1YFzCKwS9wD9k5YiwvxMWZnYD-nZFwdbmsMO9QHjcy7tuuYJ6hW_WvdD7"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-on-primary tracking-tight">Visita con Plan</span><span class="font-caption text-caption text-primary-fixed-dim hidden sm:inline-block">| La Virginia</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="text-right hidden md:block"><p class="font-caption-medium text-caption-medium text-on-primary leading-tight">Martín</p><p class="font-micro-badge text-micro-badge text-primary-fixed-dim leading-tight">Vendedor Rosario Sur</p></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADeiyeb9lfQXXjlYo2wTMygiCdlUsPgyyvPkgkZjZRQu0H2CuByVgLdnC4DBj7ofrB_iBnuxk1jZbnJyVJYFgsKYIeQQKi6REchx4fs3sHVxU52YYW9HZhahplzYiCpQlIifWE6w4z2wvOuJHrKBXbcC6mS0vpPIF0p4knoNmc9_VeVAe4LzKxx9S5XLwqP5KtcDVpJDoYNBfsUl9DkMcfbL8esN3Q3SSTq6uqVEJV"><span class="text-xs text-primary-fixed-dim md:hidden">Martín · Rosario Sur</span></div><a class="flex items-center gap-space-xs px-space-sm py-1.5 rounded text-primary-fixed-dim hover:text-on-primary hover:bg-primary-pressed transition-colors font-caption-medium text-caption-medium" data-path="login" href="#"><span class="material-symbols-outlined text-lg">logout</span><span class="hidden lg:inline">Cerrar sesión</span></a></div></div></header><aside class="fixed top-16 left-0 bottom-0 w-64 bg-surface z-40 flex flex-col justify-between py-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-md px-space-md"><div class="px-space-md py-space-xs"><p class="font-micro-badge text-micro-badge text-outline uppercase tracking-wider">Operaciones de Campo</p></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-body-md-medium"><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="puntos-de-venta" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span class="">Puntos de venta</span></a><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="mapa" href="#"><span class="material-symbols-outlined text-xl">map</span><span class="">Mapa</span></a><a class="flex items-center gap-space-md px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="asistente" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="">Asistente</span></a></nav></div><div class="px-space-md pt-space-md"><div class="p-space-md rounded-lg bg-surface-container-low"><div class="flex items-center gap-space-xs text-primary font-caption-medium text-caption-medium mb-1"><span class="material-symbols-outlined text-base text-success">cloud_done</span><span class="">Sincronizado</span></div><p class="font-caption text-caption text-on-surface-variant">Ruta Rosario Sur activa</p></div></div></aside><div class="pl-64"><main class="w-full min-h-screen pt-16 px-margin py-space-lg bg-background-base"><div class="flex flex-col w-full pb-16">
+<!-- Top Context / Breadcrumb Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<a class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+</a>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-micro-badge text-micro-badge text-tier-premium uppercase tracking-wider bg-surface-container px-2 py-0.5 rounded-full">Paso 2 de 3</span>
+<span class="text-outline-variant font-caption">•</span>
+<span class="font-caption text-caption text-on-surface-variant">Visita Presencial #2841</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-0.5">
+          Autoservicio San Cayetano
+        </h1>
+</div>
+</div>
+<!-- Live Ambient Stopwatch -->
+<div class="flex items-center gap-space-md bg-surface px-space-md py-space-sm rounded-xl shadow-sm self-start md:self-auto">
+<div class="flex items-center gap-space-xs text-alert font-caption-medium text-caption-medium">
+<span class="material-symbols-outlined text-base animate-pulse">timer</span>
+<span class="font-mono tracking-tight font-headline-md text-headline-md" id="timer-display">07:45</span>
+<span class="font-caption text-caption text-on-surface-variant text-xs">min</span>
+</div>
+<div class="h-6 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption text-caption">
+<span class="w-2 h-2 rounded-full bg-success"></span>
+<span class="">GPS validado</span>
+</div>
+</div>
+</div>
+<!-- Stepper de Progreso Global -->
+<div class="w-full bg-surface rounded-xl p-space-md mb-space-xl shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm relative"><!-- Step 1: Completado -->
+<a href="#" data-path="paso-1-fotos" class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low/60 hover:bg-surface-container-low transition-all cursor-pointer group">
+  <div class="w-8 h-8 rounded-full bg-success text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+    <span class="material-symbols-outlined text-lg">check</span>
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="font-micro-badge text-micro-badge text-success uppercase">Paso 1 · Completado</p>
+    <p class="font-body-md-medium text-body-md-medium text-on-surface truncate group-hover:text-primary transition-colors">8 Fotos de Góndola</p>
+  </div>
+  <span class="font-caption text-caption text-on-surface-variant hidden lg:inline">100%</span>
+</a>
+<!-- Step 2: Activo -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-primary-container text-on-primary shadow-sm cursor-default">
+  <div class="w-8 h-8 rounded-full bg-accent-yellow text-primary flex items-center justify-center flex-shrink-0 font-headline-md text-headline-md">
+    2
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="font-micro-badge text-micro-badge text-accent-yellow uppercase">Paso 2 · En curso</p>
+    <p class="font-body-md-medium text-body-md-medium text-on-primary truncate">Entrevista Rápida (7/7)</p>
+  </div>
+  <span class="material-symbols-outlined text-accent-yellow text-lg">mode_comment</span>
+</div>
+<!-- Step 3: Continuar / Ir al Paso 3 -->
+<a href="#" data-path="resultado-mix" id="step3-link" class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low/60 hover:bg-surface-container-high transition-all cursor-pointer group border border-outline-variant/30">
+  <div class="w-8 h-8 rounded-full bg-surface-container-highest text-primary flex items-center justify-center flex-shrink-0 font-body-md-medium text-body-md-medium group-hover:bg-primary group-hover:text-on-primary transition-colors">
+    3
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="font-micro-badge text-micro-badge text-outline group-hover:text-primary uppercase transition-colors">Paso 3 · Siguiente</p>
+    <p class="font-body-md-medium text-body-md-medium text-on-surface truncate group-hover:text-primary transition-colors">Resultado y Mix Recomendado</p>
+  </div>
+  <span class="material-symbols-outlined text-outline group-hover:text-primary text-lg transition-colors">arrow_forward</span>
+</a></div>
+</div>
+<!-- Instruction Banner Card -->
+<div class="bg-surface rounded-xl p-space-lg mb-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">record_voice_over</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Entrevista rápida de caracterización</h2>
+<span class="bg-surface-container-high text-primary px-2 py-0.5 rounded font-caption-medium text-caption-medium">≈ 1 min</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+          Hacé estas 7 preguntas cortas al comerciante mientras observás el local para calibrar el algoritmo de clusterización.
+        </p>
+</div>
+</div>
+<!-- Progress Tracker Indicator -->
+<div class="flex items-center gap-space-md self-end md:self-center bg-surface-container-low px-space-md py-space-xs rounded-lg">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Respondidas:</span>
+<span class="font-headline-md text-headline-md text-primary" id="answered-counter">7 / 7</span>
+</div>
+</div>
+<!-- Grid de 7 Preguntas -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-xl">
+<!-- Pregunta 1 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">1</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Cuántas cajas tenés?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg" title="Capacidad de facturación simultánea">point_of_sale</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Una
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          Dos ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Tres o más
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 2 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">2</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Quién repone la mercadería?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">shelves</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          El dueño
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          Un empleado ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Repositores
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 3 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">3</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Cuántos trabajan acá habitualmente?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">badge</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Familia
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          2 a 4 pers. ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          5 o más
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 4 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">4</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Hacés delivery o pedidos por apps?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">moped</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          Reparto propio ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Apps / Web
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 5 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">5</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Qué te pide más la gente que hoy no tenés?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">trending_up</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          Económicas ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          De todo un poco
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Líneas premium
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 6 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">6</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Cuánto lleva en promedio cada cliente por compra?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">shopping_basket</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Poco / paso
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          Compra del día ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          Surtido grande
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+<!-- Pregunta 7 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col justify-between md:col-span-2">
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center font-micro-badge text-micro-badge flex-shrink-0">7</span>
+<h3 class="font-body-md-medium text-body-md-medium text-on-surface">¿Tenés otros locales o sucursales comerciales?</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">domain</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-primary-container text-on-primary transition-colors shadow-sm cursor-pointer" type="button">
+          No, local único ✓
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          1 local más
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption-medium text-caption-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          2 o más sucursales
+        </button>
+<button class="question-btn py-2.5 px-space-xs text-center rounded-lg font-caption text-caption bg-surface-container-low/50 text-outline hover:bg-surface-container-high transition-colors cursor-pointer" type="button">
+          No sé
+        </button>
+</div>
+</div>
+</div>
+<!-- Socioeconomic Validation Section -->
+<div class="bg-surface rounded-xl p-space-xl mb-space-xl shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tier-media text-lg">travel_explore</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Validación de entorno socioeconómico de la zona</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Zona sugerida por IA según radio geográfico y censo: 
+          <span class="font-body-md-medium text-body-md-medium text-on-surface bg-surface-container-high px-2 py-0.5 rounded">Media</span>
+<span class="text-caption text-outline ml-1">(Radio 400 m · Rosario Sur)</span>
+</p>
+</div>
+<!-- Segmented Confirmation Chips -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-xs bg-surface-container-low p-1.5 rounded-xl">
+<button class="nse-chip flex items-center justify-center gap-space-xs px-space-lg py-2.5 rounded-lg font-caption-medium text-caption-medium text-on-surface-variant hover:bg-surface-container-high transition-all cursor-pointer" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-tier-economica"></span>
+<span class="">Vulnerable</span>
+</button>
+<button class="nse-chip flex items-center justify-center gap-space-xs px-space-lg py-2.5 rounded-lg font-caption-medium text-caption-medium bg-tier-media text-on-primary shadow-sm transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="font-headline-md text-caption-medium">Media (Confirmado)</span>
+</button>
+<button class="nse-chip flex items-center justify-center gap-space-xs px-space-lg py-2.5 rounded-lg font-caption-medium text-caption-medium text-on-surface-variant hover:bg-surface-container-high transition-all cursor-pointer" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-tier-premium"></span>
+<span class="">Acomodada</span>
+</button>
+</div>
+</div>
+<!-- Mini contextual alert / helper -->
+<div class="mt-space-md pt-space-md flex items-center gap-space-sm text-caption text-caption text-on-surface-variant bg-surface-container-low/50 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-base">info</span>
+<span class="">El mix inicial ponderará café molido 250 g, mate cocido y yerbas estándar si se confirma <strong>NSE Medio</strong>.</span>
+</div>
+</div>
+<!-- Bottom Action Footer -->
+<div class="sticky bottom-0 bg-surface/95 backdrop-blur-md p-space-md rounded-xl shadow-[0_-4px_16px_rgba(0,0,0,0.06)] flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-surface text-primary font-caption-medium text-caption-medium hover:bg-surface-container-low transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span class="">Volver a fotos</span>
+</a>
+<div class="flex items-center gap-space-md w-full sm:w-auto justify-end">
+<span class="text-caption text-on-surface-variant hidden md:inline">Respuestas listas para clasificar</span>
+<button id="btn-procesar-ia" class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-3 rounded-lg bg-primary-container text-accent-yellow font-headline-md text-headline-md hover:bg-primary-pressed transition-all shadow-md active:scale-[0.99] cursor-pointer" type="button" data-path="resultado-mix">
+  <span id="btn-procesar-text" class="">Procesar y Analizar con IA</span>
+  <span id="btn-procesar-icon" class="material-symbols-outlined text-xl">auto_awesome</span>
+</button>
+</div>
+</div><!-- Loading Simulation Modal Overlay -->
+<div id="ai-loading-modal" class="fixed inset-0 z-50 bg-on-background/60 backdrop-blur-sm hidden items-center justify-center p-space-lg">
+  <div class="bg-surface rounded-2xl p-space-xl shadow-xl max-w-md w-full text-center flex flex-col items-center gap-space-md animate-in fade-in zoom-in duration-200">
+    <div class="w-16 h-16 rounded-full bg-primary-container text-accent-yellow flex items-center justify-center shadow-md animate-bounce">
+      <span class="material-symbols-outlined text-3xl">auto_awesome</span>
+    </div>
+    <div>
+      <h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold">Analizando — Visita con Plan</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-1">Procesando las 7 respuestas y fotos de góndola con el modelo predictivo La Virginia...</p>
+    </div>
+    <div class="w-full bg-surface-container rounded-full h-2 overflow-hidden mt-space-sm">
+      <div class="bg-accent-yellow h-2 rounded-full animate-pulse w-3/4"></div>
+    </div>
+    <div class="flex items-center gap-space-xs text-caption text-caption text-outline">
+      <span class="material-symbols-outlined text-base animate-spin">sync</span>
+      <span class="">Generando cluster y portafolio óptimo...</span>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  // Simple interactive logic for demonstration and segmented button switching
+  document.querySelectorAll('.question-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const parent = this.parentElement;
+      parent.querySelectorAll('.question-btn').forEach(btn => {
+        btn.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        if (btn.textContent.includes('✓')) {
+          btn.textContent = btn.textContent.replace(' ✓', '');
+        }
+      });
+      this.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      this.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+      if (!this.textContent.includes('✓') && !this.textContent.includes('No sé')) {
+        this.textContent = this.textContent.trim() + ' ✓';
+      }
+    });
+  });
+
+  // Interactive logic for NSE Chips
+  document.querySelectorAll('.nse-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const parent = this.parentElement;
+      parent.querySelectorAll('.nse-chip').forEach(c => {
+        c.className = 'nse-chip flex items-center justify-center gap-space-xs px-space-lg py-2.5 rounded-lg font-caption-medium text-caption-medium text-on-surface-variant hover:bg-surface-container-high transition-all';
+      });
+      this.className = 'nse-chip flex items-center justify-center gap-space-xs px-space-lg py-2.5 rounded-lg font-caption-medium text-caption-medium bg-tier-media text-on-primary shadow-sm transition-all';
+    });
+  });
+</script></main></div>
+
+</body></html>

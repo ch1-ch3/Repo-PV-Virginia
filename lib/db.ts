@@ -1,16 +1,44 @@
-// Persistencia de fichas.
+// Persistencia de fichas y puntos de venta.
 // Si hay SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY usa Supabase (REST, sin dependencias).
-// Si no, guarda en memoria (se pierde al reiniciar) y siempre suma las fichas de demo.
+// Si no, guarda en memoria (se pierde al reiniciar) y siempre suma las visitas de demo.
 // Tabla: ver supabase/schema.sql
 
-import type { FichaComercio } from "./types"
-import demo from "../data/fichas-demo.json"
+import puntosDemo from "../data/puntos-demo.json"
+import semillas from "../data/fichas-demo.json"
+import { buscarMaterial } from "./catalogo"
+import { armarFicha, type EntradaFicha } from "./ficha"
+import type { FichaComercio, PuntoDeVenta } from "./types"
 
 const URL_SB = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
 const KEY_SB = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 const memoria: FichaComercio[] = []
-const fichasDemo = demo as unknown as FichaComercio[]
+
+type PuntoSemilla = Omit<PuntoDeVenta, "ultimas_ventas" | "ultima_ficha_id" | "visitado_hoy"> & {
+  ultimas_ventas: { fecha: string; items: { material: string; unidades: number }[] }[]
+}
+
+// Puntos asignados al vendedor (DATOS DE EJEMPLO: categoría del cuestionario 2022 y ventas simuladas).
+const PUNTOS_BASE: PuntoDeVenta[] = (puntosDemo as PuntoSemilla[]).map((p) => ({
+  ...p,
+  ultimas_ventas: p.ultimas_ventas.map((v) => ({
+    fecha: v.fecha,
+    items: v.items.map((i) => ({ ...i, nombre: buscarMaterial(i.material)?.nombre ?? i.material })),
+  })),
+  ultima_ficha_id: null,
+  visitado_hoy: false,
+}))
+
+type Semilla = Omit<EntradaFicha, "punto" | "ubicacion" | "origen"> & { punto_id: string | null }
+
+// Las visitas de demo pasan por el mismo armado que una visita real, así NSE y mix son coherentes.
+let fichasDemo: FichaComercio[] | null = null
+function demo(): FichaComercio[] {
+  fichasDemo ??= (semillas as unknown as Semilla[]).map((s) =>
+    armarFicha({ ...s, punto: PUNTOS_BASE.find((p) => p.id === s.punto_id) ?? null, ubicacion: null, origen: "demo" }),
+  )
+  return fichasDemo
+}
 
 function headers() {
   return {
@@ -45,15 +73,50 @@ export async function listarFichas(): Promise<FichaComercio[]> {
     })
     if (res.ok) {
       const filas = (await res.json()) as { data: FichaComercio }[]
-      guardadas = filas.map((f) => f.data)
+      // Descarta fichas del contrato v1 que hayan quedado en la tabla.
+      guardadas = [...memoria, ...filas.map((f) => f.data).filter((f) => f?.mix && f?.nse?.criterios)]
     } else {
       console.error("Supabase select", res.status, await res.text())
     }
   }
-  return [...guardadas, ...fichasDemo]
+  const ids = new Set<string>()
+  return [...guardadas, ...demo()]
+    .filter((f) => (ids.has(f.id) ? false : (ids.add(f.id), true)))
+    .sort((a, b) => b.creado.localeCompare(a.creado))
 }
 
 export async function obtenerFicha(id: string): Promise<FichaComercio | null> {
   const todas = await listarFichas()
   return todas.find((f) => f.id === id) ?? null
+}
+
+function diaArgentina(fecha: string | Date): string {
+  return new Date(fecha).toLocaleDateString("en-CA", { timeZone: "America/Argentina/Buenos_Aires" })
+}
+
+// La categoría actual de un punto es la de su visita más reciente en la app; si nunca se visitó, la del cuestionario.
+export async function listarPuntos(): Promise<PuntoDeVenta[]> {
+  const fichas = await listarFichas()
+  const hoy = diaArgentina(new Date())
+  return PUNTOS_BASE.map((p) => {
+    const ultima = fichas.find((f) => f.punto_id === p.id)
+    if (!ultima) return p
+    return {
+      ...p,
+      categoria_actual: {
+        formato: ultima.formato.formato,
+        nse: ultima.nse.nivel,
+        puntaje: ultima.nse.puntaje,
+        fecha: ultima.creado,
+        zona: ultima.zona.confirmada ?? ultima.zona.sugerida,
+      },
+      mix_actual: ultima.mix.porcentajes,
+      ultima_ficha_id: ultima.id,
+      visitado_hoy: diaArgentina(ultima.creado) === hoy,
+    }
+  })
+}
+
+export async function obtenerPunto(id: string): Promise<PuntoDeVenta | null> {
+  return (await listarPuntos()).find((p) => p.id === id) ?? null
 }

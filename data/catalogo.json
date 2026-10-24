@@ -1,0 +1,702 @@
+[
+ {
+  "material": "CAFE LVE CAPS IN LG 10/5,2G",
+  "nombre": "Cápsulas LVE Intenso x10",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "CAPSULAS NC",
+  "rubro": "CAPSULA INTENSO"
+ },
+ {
+  "material": "INST LV CLA ESP INST DP170G",
+  "nombre": "Café instantáneo La Virginia Clásico 170 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. COMUNES",
+  "rubro": "CAFE INST LV CLASICO"
+ },
+ {
+  "material": "INST LV KALMA ESP INST F100G",
+  "nombre": "Café instantáneo La Virginia Kalma 100 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. COMUNES",
+  "rubro": "CAFE INST LV KALMA"
+ },
+ {
+  "material": "INST LV SUAVE ESP INST DP170G",
+  "nombre": "Café instantáneo La Virginia Suave 170 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. COMUNES",
+  "rubro": "CAFE INST LV SUAVE"
+ },
+ {
+  "material": "INST MOREN INTENS F100G",
+  "nombre": "Café instantáneo La Morenita Intenso 100 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. COMUNES",
+  "rubro": "CAFÉ INST. M INTENSO"
+ },
+ {
+  "material": "MIX CAPP LV DDL DE DP155G",
+  "nombre": "Cappuccino La Virginia Dulce de leche 155 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAP. EI. DULCE DE LE"
+ },
+ {
+  "material": "MIX CAPP LV VAINILLA DE DP 155G",
+  "nombre": "Cappuccino La Virginia Vainilla 155 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPPUCCINO LV ESPUMA"
+ },
+ {
+  "material": "MIX CAPP LV MOUSSE DE DP155G",
+  "nombre": "Cappuccino La Virginia Mousse 155 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPPUCCINO LV MOUSSE"
+ },
+ {
+  "material": "MIX CAPP LV MOCHA DE DP125G",
+  "nombre": "Cappuccino La Virginia Mocha 125 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPPUCCINO MOCHA"
+ },
+ {
+  "material": "MIX CAPP MORE DP 125G",
+  "nombre": "Cappuccino La Morenita 125 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPUCCINO LA MORENIT"
+ },
+ {
+  "material": "MIX CAPP LV LIGHT DE DP 100G",
+  "nombre": "Cappuccino La Virginia Light 100 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPUCCINO LV LIGHT"
+ },
+ {
+  "material": "MIX CAPP LV TRAD DE DP125G",
+  "nombre": "Cappuccino La Virginia Tradicional 125 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. MIXES",
+  "rubro": "CAPUCCINO LV TRADICI"
+ },
+ {
+  "material": "INST LV SELECCION TOST F170G",
+  "nombre": "Café instantáneo La Virginia Selección 170 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "INST. TOSTADOS",
+  "rubro": "CAFÉ INST.LV SELECCI"
+ },
+ {
+  "material": "CAFE SAQ LV TOR EQUI 20/5G",
+  "nombre": "Café en saquitos La Virginia x20",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "SAQUITOS",
+  "rubro": "CAFE EN SAQUITOS"
+ },
+ {
+  "material": "CAFE SAQ M INTENSO 20/5G",
+  "nombre": "Café en saquitos La Morenita x20",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "SAQUITOS",
+  "rubro": "CAFE LM SAQUITOS"
+ },
+ {
+  "material": "CAFE MOL LV TOR EQUIL 250G",
+  "nombre": "Café molido La Virginia Torrado 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TORRADOS",
+  "rubro": "CAFE CORONADO"
+ },
+ {
+  "material": "CAFE MOL MOR INTENS 500G",
+  "nombre": "Café molido La Morenita Intenso 500 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TORRADOS",
+  "rubro": "CAFE LM ETIQUETA MAR"
+ },
+ {
+  "material": "CAFE TOST MORE MOL COLOM AP 500G",
+  "nombre": "Café tostado La Morenita Colombia 500 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "CAFE MORE TOSTADO"
+ },
+ {
+  "material": "CAFE TOST MORE MOL BD ITAL 250G",
+  "nombre": "Café tostado La Morenita Italiano 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "CAFÉ MORE TOSTADO BD"
+ },
+ {
+  "material": "CAFE TOST MORE MOL BRASIL 250G",
+  "nombre": "Café tostado La Morenita Brasil 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "CAFÉ MORE TOSTADO BR"
+ },
+ {
+  "material": "CAFE LV MOL TOSTADO INTENSO 250G",
+  "nombre": "Café tostado La Virginia Intenso 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "LV TOSTADO INTENSO"
+ },
+ {
+  "material": "CAFE MOL LV TOST MAS 250G",
+  "nombre": "Café tostado La Virginia Más 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "LV TOSTADO MAS"
+ },
+ {
+  "material": "CAFE LV MOL TOSTADO SUTIL 250G",
+  "nombre": "Café tostado La Virginia Sutil 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "LV TOSTADO SUTIL"
+ },
+ {
+  "material": "CAFE LVE MOL TOSTADO PA 500G",
+  "nombre": "Café tostado LVE 500 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "LVE TOSTADO"
+ },
+ {
+  "material": "CAFE MOL MORE TOST MAS 250G",
+  "nombre": "Café tostado La Morenita Más 250 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "MORE TOSTADO MAS"
+ },
+ {
+  "material": "CAFE LV PURO AROMA GR PA 500G",
+  "nombre": "Café en grano Puro Aroma 500 g",
+  "linea": "CAFÉ AMPLIADO",
+  "sublinea": "TOSTADOS",
+  "rubro": "PURO AROMA TOSTADO"
+ },
+ {
+  "material": "CHOCOL CACAO 180G",
+  "nombre": "Cacao Chocolino 180 g",
+  "linea": "CHOCOLINO",
+  "sublinea": "CACAO GRANULADO",
+  "rubro": "CACAO CHOCOLINO"
+ },
+ {
+  "material": "CHOCOL CACAO MENOS AZUC. 300G",
+  "nombre": "Cacao Chocolino menos azúcar 300 g",
+  "linea": "CHOCOLINO",
+  "sublinea": "CACAO GRANULADO",
+  "rubro": "CACAO CHOCOLINO MENO"
+ },
+ {
+  "material": "CHOCOL CER BOLITAS P 200G",
+  "nombre": "Cereal Chocolino bolitas 200 g",
+  "linea": "CHOCOLINO",
+  "sublinea": "CEREALES",
+  "rubro": "BOLITAS DE CHOCOLATE"
+ },
+ {
+  "material": "TUY CLASICO LIQUIDO 200CC",
+  "nombre": "Edulcorante Tuy Clásico 200 cc",
+  "linea": "EDULCORANTES",
+  "sublinea": "EDULC. LÍQ.",
+  "rubro": "TUY CLASICO LIQUIDO"
+ },
+ {
+  "material": "TUY STEVIA LIQUIDO 200CC",
+  "nombre": "Edulcorante Tuy Stevia 200 cc",
+  "linea": "EDULCORANTES",
+  "sublinea": "EDULC. LÍQ.",
+  "rubro": "TUY STEVIA LIQUIDO"
+ },
+ {
+  "material": "TUY SUCRA LIQUIDO 200CC",
+  "nombre": "Edulcorante Tuy Sucralosa 200 cc",
+  "linea": "EDULCORANTES",
+  "sublinea": "EDULC. LÍQ.",
+  "rubro": "TUY SUCRA LIQUIDO"
+ },
+ {
+  "material": "TUY SWEET LIQUIDO 200 CC",
+  "nombre": "Edulcorante Tuy Sweet 200 cc",
+  "linea": "EDULCORANTES",
+  "sublinea": "EDULC. LÍQ.",
+  "rubro": "TUY SWEET LIQUIDO"
+ },
+ {
+  "material": "COND P/ CHIMI ST S 25G",
+  "nombre": "Condimento para chimichurri 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CHIMICHURRI"
+ },
+ {
+  "material": "COND P/TUCO/G ST S25G",
+  "nombre": "Condimento para tuco 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "COND.PARA TUCO Y GUI"
+ },
+ {
+  "material": "COND P/EMPANA ST S25G",
+  "nombre": "Condimento para empanadas 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CONDIMENTO P/EMPANAD"
+ },
+ {
+  "material": "COND P/MILANES ST S25G",
+  "nombre": "Condimento para milanesas 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CONDIMENTO PARA MILA"
+ },
+ {
+  "material": "COND P/ARROZ ST S25G",
+  "nombre": "Condimento para arroz 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CONDIMENTOS P/ARROZ"
+ },
+ {
+  "material": "COND P/CARNES ST S25G",
+  "nombre": "Condimento para carnes 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CONDIMENTOS P/CARNES"
+ },
+ {
+  "material": "COND P/PIZZA ST S 25G",
+  "nombre": "Condimento para pizza 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "CONDIM. PARA",
+  "rubro": "CONDIMENTOS P/PIZZA"
+ },
+ {
+  "material": "ESP AJI TRI ST S25G",
+  "nombre": "Ají molido 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "AJI"
+ },
+ {
+  "material": "ESP AJO TRI ST S50G",
+  "nombre": "Ajo triturado 50 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "AJO"
+ },
+ {
+  "material": "ESP CEBOLLA DH ST S50G",
+  "nombre": "Cebolla deshidratada 50 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "CEBOLLA DESHIDRATADA"
+ },
+ {
+  "material": "ESP COMINO MOL ST S 25G",
+  "nombre": "Comino molido 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "COMINO"
+ },
+ {
+  "material": "ESP NUEZ M MOL ST S25G",
+  "nombre": "Nuez moscada 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "NUEZ MOSCADA"
+ },
+ {
+  "material": "ESP OREGANO ST S 25G",
+  "nombre": "Orégano 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "OREGANO"
+ },
+ {
+  "material": "ESP PEREJIL DH ST S 25G",
+  "nombre": "Perejil deshidratado 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "PEREJIL DESHIDRATADO"
+ },
+ {
+  "material": "ESP PIMENTON ST S 25G",
+  "nombre": "Pimentón 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "PIMENTON ALICANTE"
+ },
+ {
+  "material": "ESP PTA BC MOL ST S 25G",
+  "nombre": "Pimienta blanca 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "PIMIENTA BLANCA"
+ },
+ {
+  "material": "ESP PTA NE MOL ST S 25G",
+  "nombre": "Pimienta negra 25 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "PIMIENTA NEGRA"
+ },
+ {
+  "material": "ESP PROVENZAL ST S 50G",
+  "nombre": "Provenzal 50 g",
+  "linea": "ESPECIAS Y CONDIMENT",
+  "sublinea": "ESPECIAS Y HIERBAS",
+  "rubro": "PROVENZAL"
+ },
+ {
+  "material": "GIACOMO CARNE NR 500G",
+  "nombre": "Capelettis Giacomo carne 500 g",
+  "linea": "GIACOMO",
+  "sublinea": "CAPELETTIS",
+  "rubro": "GIACOMO CARNE"
+ },
+ {
+  "material": "GIACOMO QUE/JAM NR 500G",
+  "nombre": "Capelettis Giacomo jamón y queso 500 g",
+  "linea": "GIACOMO",
+  "sublinea": "CAPELETTIS",
+  "rubro": "GIACOMO QUESO Y JAMO"
+ },
+ {
+  "material": "GIACOMO TRIDICC NR 500G",
+  "nombre": "Capelettis Giacomo tricolor 500 g",
+  "linea": "GIACOMO",
+  "sublinea": "CAPELETTIS",
+  "rubro": "GIACOMO TRIDICCI"
+ },
+ {
+  "material": "GIACOMO VERDURA NR 500G",
+  "nombre": "Capelettis Giacomo verdura 500 g",
+  "linea": "GIACOMO",
+  "sublinea": "CAPELETTIS",
+  "rubro": "GIACOMO VERDURA"
+ },
+ {
+  "material": "HRB LV BOLDO 25S",
+  "nombre": "Boldo La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "BOLDO LV"
+ },
+ {
+  "material": "HRB LV CEDRON 25S",
+  "nombre": "Cedrón La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "CEDRON LV"
+ },
+ {
+  "material": "HRB LV MANZAN ANIS 25S",
+  "nombre": "Manzanilla con anís La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "MANZANILLA CON ANIS"
+ },
+ {
+  "material": "HRB LV MANZANILLA 25S",
+  "nombre": "Manzanilla La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "MANZANILLA LV"
+ },
+ {
+  "material": "HRB LV MZCL HRBS 25S",
+  "nombre": "Mezcla de hierbas La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "MEZCLA DE HIERBAS LV"
+ },
+ {
+  "material": "HRB LV TILO MZN CED 25S",
+  "nombre": "Tilo, manzanilla y cedrón La Virginia x25",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO CON SOBREENVOL",
+  "rubro": "TILO C/MANZ Y CED LV"
+ },
+ {
+  "material": "HRB MO BOLDO MC S/S 20S",
+  "nombre": "Boldo La Morenita x20",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO SIN SOBREENVOL",
+  "rubro": "BOLDO LM S/S"
+ },
+ {
+  "material": "HRB MO MANZ MC S/S 20S",
+  "nombre": "Manzanilla La Morenita x20",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO SIN SOBREENVOL",
+  "rubro": "MANZANILLA LM S/S"
+ },
+ {
+  "material": "HRB MO MZCL MC S/S 20S",
+  "nombre": "Mezcla de hierbas La Morenita x20",
+  "linea": "HERBORISTERIA",
+  "sublinea": "HERBO SIN SOBREENVOL",
+  "rubro": "MEZCLA HIERBAS LM S/"
+ },
+ {
+  "material": "SAB POL ALB AJO ST 12S",
+  "nombre": "Caldo albahaca y ajo x12",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDO ALBAHACA Y AJO"
+ },
+ {
+  "material": "SAB POL CARNE ST 4S",
+  "nombre": "Caldo de carne x4",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDO DE CARNES"
+ },
+ {
+  "material": "SAB POL GALLINA ST 12S",
+  "nombre": "Caldo de gallina x12",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDO DE GALLINA"
+ },
+ {
+  "material": "SAB POL PANC/HI ST 4S",
+  "nombre": "Caldo panceta y hierbas x4",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDO DE PANCETA Y H"
+ },
+ {
+  "material": "SAB POL VERD ST 12S",
+  "nombre": "Caldo de verduras x12",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDO DE VERDURAS"
+ },
+ {
+  "material": "SAB POL FIN HIE ST 4S",
+  "nombre": "Caldo finas hierbas x4",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "CALDOS FINAS HIERBAS"
+ },
+ {
+  "material": "SAB POL CREMA/VERDEO 4S",
+  "nombre": "Saborizador crema y verdeo x4",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "SAB. POLVO CREMA/VER"
+ },
+ {
+  "material": "SAB POL 4 QUE ST 4S",
+  "nombre": "Saborizador cuatro quesos x4",
+  "linea": "PREPARADOS",
+  "sublinea": "CALDOS",
+  "rubro": "SABOR EN POLVO CUATR"
+ },
+ {
+  "material": "SALSA 4 QUESOS 37G",
+  "nombre": "Salsa cuatro quesos 37 g",
+  "linea": "PREPARADOS",
+  "sublinea": "SALSAS",
+  "rubro": "SALSA 4 QUESOS"
+ },
+ {
+  "material": "SALSA BLANCA S40G",
+  "nombre": "Salsa blanca 40 g",
+  "linea": "PREPARADOS",
+  "sublinea": "SALSAS",
+  "rubro": "SALSA BLANCA"
+ },
+ {
+  "material": "SOPA CRE CHOCLO S69G",
+  "nombre": "Sopa crema de choclo",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA CREMA HUMITA"
+ },
+ {
+  "material": "SOPA CRE ZAP S73G",
+  "nombre": "Sopa crema de zapallo",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA CREMA ZAPALLO"
+ },
+ {
+  "material": "SOPA CRIOLLA VEG S72G",
+  "nombre": "Sopa criolla",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA CRIOLLA"
+ },
+ {
+  "material": "SOPA FIDEOS VERD S72G",
+  "nombre": "Sopa de fideos con verduras",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA FIDEOS C/VERDUR"
+ },
+ {
+  "material": "SOPA POLL/ARR/VE S63G",
+  "nombre": "Sopa de pollo con arroz",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA POLLO CON ARROZ"
+ },
+ {
+  "material": "SOPA CAMPESTRE S68G",
+  "nombre": "Sopa campestre",
+  "linea": "PREPARADOS",
+  "sublinea": "SOPAS",
+  "rubro": "SOPA TIPO CAMPESTRE"
+ },
+ {
+  "material": "AZUCAR LV PAL 800",
+  "nombre": "Azúcar La Virginia en palitos x800",
+  "linea": "PRODUCTOS FUERA DEL",
+  "sublinea": "AZUCAR",
+  "rubro": "AZUCAR F.HOGAR"
+ },
+ {
+  "material": "CAFE MKP GNO ITALIANO 1KG",
+  "nombre": "Café en grano Mokapress Italiano 1 kg",
+  "linea": "PRODUCTOS FUERA DEL",
+  "sublinea": "CAFES PARA BARES",
+  "rubro": "C. MKP ITAL"
+ },
+ {
+  "material": "CAFE MKP GNO CLASICO 1KG",
+  "nombre": "Café en grano Mokapress Clásico 1 kg",
+  "linea": "PRODUCTOS FUERA DEL",
+  "sublinea": "CAFES PARA BARES",
+  "rubro": "C. MOKAPRES"
+ },
+ {
+  "material": "CAFE MKP GNO NERO BLEND 1KG",
+  "nombre": "Café en grano LVE Nero Blend 1 kg",
+  "linea": "PRODUCTOS FUERA DEL",
+  "sublinea": "CAFES PARA BARES",
+  "rubro": "LVE NERO"
+ },
+ {
+  "material": "TUY SWEET POLVO S 400",
+  "nombre": "Edulcorante Tuy Sweet en sobres x400",
+  "linea": "PRODUCTOS FUERA DEL",
+  "sublinea": "ENDULZANTE",
+  "rubro": "ED. F. HOGAR"
+ },
+ {
+  "material": "REP ANIS GNO ST S25G",
+  "nombre": "Anís en grano 25 g",
+  "linea": "REPOSTERIA",
+  "sublinea": "TRADICIONAL",
+  "rubro": "ANIS"
+ },
+ {
+  "material": "REP BICARBONATO ST S50G",
+  "nombre": "Bicarbonato 50 g",
+  "linea": "REPOSTERIA",
+  "sublinea": "TRADICIONAL",
+  "rubro": "BICARBONATO"
+ },
+ {
+  "material": "REP CANELA MOL ST S 25G",
+  "nombre": "Canela molida 25 g",
+  "linea": "REPOSTERIA",
+  "sublinea": "TRADICIONAL",
+  "rubro": "CANELA"
+ },
+ {
+  "material": "REP COCO RALL ST S 50G",
+  "nombre": "Coco rallado 50 g",
+  "linea": "REPOSTERIA",
+  "sublinea": "TRADICIONAL",
+  "rubro": "COCO RALLADO"
+ },
+ {
+  "material": "REP VAINIL LIQ ST F 100CC",
+  "nombre": "Esencia de vainilla 100 cc",
+  "linea": "REPOSTERIA",
+  "sublinea": "TRADICIONAL",
+  "rubro": "VAINILLA"
+ },
+ {
+  "material": "TE COMUN LV NAT INT 25S",
+  "nombre": "Té La Virginia clásico x25",
+  "linea": "TES",
+  "sublinea": "TES COMUNES",
+  "rubro": "LA VIRGINIA SAQUITOS"
+ },
+ {
+  "material": "TE COMUN MO D1890 25 S",
+  "nombre": "Té La Morenita x25",
+  "linea": "TES",
+  "sublinea": "TES COMUNES",
+  "rubro": "TE LM SAQUITOS"
+ },
+ {
+  "material": "TE NEGRO LV INTENSO 20S",
+  "nombre": "Té negro La Virginia Intenso x20",
+  "linea": "TES",
+  "sublinea": "TES COMUNES",
+  "rubro": "TE LV INTENSO"
+ },
+ {
+  "material": "TE ES LV VERDE 20S",
+  "nombre": "Té verde La Virginia x20",
+  "linea": "TES",
+  "sublinea": "TES ESPECIALES",
+  "rubro": "TE VERDE LV"
+ },
+ {
+  "material": "TE SA LV CANELA 20S",
+  "nombre": "Té con canela La Virginia x20",
+  "linea": "TES",
+  "sublinea": "TES SABORIZADOS",
+  "rubro": "TE CON CANELA LV"
+ },
+ {
+  "material": "TE SA LV MANZANA CAN 20S",
+  "nombre": "Té manzana y canela La Virginia x20",
+  "linea": "TES",
+  "sublinea": "TES SABORIZADOS",
+  "rubro": "TE SAB LV MZN/CANELA"
+ },
+ {
+  "material": "TE SA LV FRUTILLA 20S",
+  "nombre": "Té frutilla La Virginia x20",
+  "linea": "TES",
+  "sublinea": "TES SABORIZADOS",
+  "rubro": "TE SABOR FRUTILLA LV"
+ },
+ {
+  "material": "TE SA LV LIMON 20S",
+  "nombre": "Té limón La Virginia x20",
+  "linea": "TES",
+  "sublinea": "TES SABORIZADOS",
+  "rubro": "TE SABOR LIMON/VIT C"
+ },
+ {
+  "material": "YERBA LITORAL CS ST 50S",
+  "nombre": "Mate cocido Litoral x50 (con sobre)",
+  "linea": "YERBA",
+  "sublinea": "YERBA CON SOBREENVOL",
+  "rubro": "YERBA MATE LITORAL C"
+ },
+ {
+  "material": "YERBA LITORAL SS ST E-25/3G",
+  "nombre": "Mate cocido Litoral x25",
+  "linea": "YERBA",
+  "sublinea": "YERBA SIN SOBREENVOL",
+  "rubro": "YERBA MATE LITORAL S"
+ }
+]

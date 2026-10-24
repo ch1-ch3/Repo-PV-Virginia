@@ -4,14 +4,7 @@ import { useEffect, useState } from "react"
 import { Check, Loader2 } from "lucide-react"
 import { cn } from "@/components/utils"
 
-const PASOS = [
-  "Subiendo fotos",
-  "Reconociendo formato y tamaño",
-  "Leyendo señales de nivel socioeconómico",
-  "Revisando góndola y surtido La Virginia",
-  "Registrando precios clave",
-  "Armando pedido sugerido",
-]
+const PASOS = ["Leyendo góndolas y precios", "Calculando nivel socioeconómico", "Categorizando el comercio", "Armando el mix La Virginia"]
 
 export function EstadoAnalisis({ cantidadFotos }: { cantidadFotos: number }) {
   const [segundos, setSegundos] = useState(0)
@@ -21,22 +14,26 @@ export function EstadoAnalisis({ cantidadFotos }: { cantidadFotos: number }) {
     return () => clearInterval(intervalo)
   }, [])
 
-  const pasoActual = Math.min(Math.floor(segundos / 5), PASOS.length - 1)
+  // Sin fotos el análisis es solo código: casi instantáneo.
+  const ritmo = cantidadFotos > 0 ? 7 : 1
+  const pasoActual = Math.min(Math.floor(segundos / ritmo), PASOS.length - 1)
 
   return (
     <div className="flex min-h-[60vh] flex-col justify-center gap-6" role="status" aria-live="polite">
       <div className="flex flex-col gap-1">
-        <p className="text-sm font-medium text-primary">Analizando {cantidadFotos} {cantidadFotos === 1 ? "foto" : "fotos"}</p>
-        <h1 className="text-2xl font-bold text-balance">Armando la ficha del comercio</h1>
+        <p className="text-sm font-medium text-primary">
+          {cantidadFotos > 0 ? `Analizando ${cantidadFotos} ${cantidadFotos === 1 ? "foto" : "fotos"} y la entrevista` : "Analizando la entrevista"}
+        </p>
+        <h2 className="text-2xl font-semibold text-balance">Armando la categoría y el mix</h2>
         <p className="text-sm text-muted-foreground">
           Suele tardar menos de un minuto · <span className="font-mono">{segundos}s</span>
         </p>
       </div>
 
-      <div className="h-2 overflow-hidden rounded-full bg-muted">
+      <div className="h-2 overflow-hidden rounded-full bg-card">
         <div
           className="h-full rounded-full bg-primary transition-[width] duration-1000 ease-linear"
-          style={{ width: `${Math.min(95, (segundos / 45) * 100)}%` }}
+          style={{ width: `${Math.min(95, (segundos / (ritmo * 5)) * 100)}%` }}
         />
       </div>
 
@@ -45,10 +42,7 @@ export function EstadoAnalisis({ cantidadFotos }: { cantidadFotos: number }) {
           const hecho = i < pasoActual
           const activo = i === pasoActual
           return (
-            <li
-              key={paso}
-              className={cn("flex items-center gap-3 text-base", !hecho && !activo && "text-muted-foreground/60")}
-            >
+            <li key={paso} className={cn("flex items-center gap-3 text-base", !hecho && !activo && "text-muted-foreground/60")}>
               <span
                 className={cn(
                   "flex size-6 items-center justify-center rounded-full border",
@@ -56,11 +50,7 @@ export function EstadoAnalisis({ cantidadFotos }: { cantidadFotos: number }) {
                   activo && "border-primary text-primary",
                 )}
               >
-                {hecho ? (
-                  <Check className="size-3.5" aria-hidden="true" />
-                ) : activo ? (
-                  <Loader2 className="size-3.5 animate-spin" aria-hidden="true" />
-                ) : null}
+                {hecho ? <Check className="size-3.5" aria-hidden="true" /> : activo ? <Loader2 className="size-3.5 animate-spin" aria-hidden="true" /> : null}
               </span>
               <span className={cn(activo && "font-semibold")}>{paso}</span>
             </li>
