@@ -8,11 +8,9 @@ export default function LoginPage() {
     <main className="flex min-h-dvh flex-col bg-primary px-4 py-10">
       <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-8">
         <div className="flex flex-col items-center gap-3 text-center text-primary-foreground">
-          <span className="flex size-16 items-center justify-center rounded-2xl bg-amarillo text-2xl font-black text-primary shadow">LV</span>
-          <div>
-            <h1 className="text-3xl font-semibold">Visita con Plan</h1>
-            <p className="text-amarillo">La Virginia</p>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element -- SVG estático del logo */}
+          <img src="/la-virginia.svg" alt="La Virginia" width={240} height={150} className="h-auto w-60 rounded-2xl shadow-lg" />
+          <h1 className="text-3xl font-semibold">Visita con Plan</h1>
           <p className="text-sm text-primary-foreground/80">Fotos y 7 preguntas al dueño: categoría y mix en menos de un minuto.</p>
         </div>
         <FormularioLogin />

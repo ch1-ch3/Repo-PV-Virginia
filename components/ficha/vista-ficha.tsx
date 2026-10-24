@@ -99,7 +99,7 @@ export function VistaFicha({ id, pestanaInicial = "categoria" }: { id: string; p
 
       <Recategorizacion ficha={ficha} />
 
-      <div className="sticky top-14 z-10 -mx-4 bg-background/95 px-4 py-2 backdrop-blur">
+      <div className="sticky top-[100px] z-10 -mx-4 bg-background/95 px-4 py-2 backdrop-blur">
         <div className="grid grid-cols-3 gap-1 rounded-xl bg-card p-1 shadow-sm" role="tablist">
           {(
             [
